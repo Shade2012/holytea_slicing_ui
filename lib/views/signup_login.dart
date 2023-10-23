@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:holytea_slicing_ui/login.dart';
-import 'package:holytea_slicing_ui/signup.dart';
-import 'themes.dart';
+import 'package:holytea_slicing_ui/views/login.dart';
+import 'package:holytea_slicing_ui/views/signup.dart';
+import '../utils/themes.dart';
 import 'package:get/get.dart';
 
 class Sign_upLoginPage extends StatelessWidget {

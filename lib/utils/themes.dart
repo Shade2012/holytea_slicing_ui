@@ -9,7 +9,7 @@ figmaFontsize(int fontSize) {
 const Color primaryColor = Color(0xFF68AD50);
 const Color primaryTextColor = Colors.white;
 Color secondaryColor = Colors.black;
-
+const Color bgColor = Color.fromARGB(255, 243, 255, 238);
 //Button Style
 ButtonStyle customButtonStyle = ButtonStyle(
   backgroundColor: MaterialStateProperty.all<Color>(primaryColor),
@@ -78,6 +78,14 @@ TextStyle contentTextVer2 = GoogleFonts.inter(
         fontWeight: FontWeight.w500,
         fontSize: figmaFontsize(20)));
 
+TextStyle normalFontBlBold = GoogleFonts.inter(
+    textStyle: TextStyle(
+        color: secondaryColor, fontWeight: FontWeight.bold, fontSize: 20));
+
+TextStyle normalFontBl = GoogleFonts.inter(
+    textStyle: TextStyle(color: secondaryColor, fontSize: 20));
+
 //IMAGE ASSETS
 String image_awal_set = "assets/image_awal_set.png";
 String image_signup_login = "assets/image_signup_login.png";
+String image_map = "assets/image_map.png";

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:holytea_slicing_ui/signup_login.dart';
-import 'themes.dart';
+import 'package:holytea_slicing_ui/views/signup_login.dart';
+import '../utils/themes.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({Key? key}) : super(key: key);
