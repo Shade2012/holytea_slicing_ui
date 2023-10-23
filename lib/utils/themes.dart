@@ -10,6 +10,8 @@ const Color primaryColor = Color(0xFF68AD50);
 const Color primaryTextColor = Colors.white;
 Color secondaryColor = Colors.black;
 const Color bgColor = Color.fromARGB(255, 243, 255, 238);
+const Color bgColorLogin_Register = Color.fromARGB(127, 217, 217, 217);
+Color secondaryBGColor = Color.fromARGB(255, 217, 217, 217);
 //Button Style
 ButtonStyle customButtonStyle = ButtonStyle(
   backgroundColor: MaterialStateProperty.all<Color>(primaryColor),
@@ -89,3 +91,4 @@ TextStyle normalFontBl = GoogleFonts.inter(
 String image_awal_set = "assets/image_awal_set.png";
 String image_signup_login = "assets/image_signup_login.png";
 String image_map = "assets/image_map.png";
+String image_logo_holytea = "assets/image_logo_holytea.png";
