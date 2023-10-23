@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:holytea_slicing_ui/controller/controller.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 import 'package:get/get.dart';
+import 'package:holytea_slicing_ui/views/homepage.dart';
 import 'package:holytea_slicing_ui/views/signup.dart';
 
 class LoginPage extends StatelessWidget {
@@ -91,7 +92,12 @@ class LoginPage extends StatelessWidget {
                     width: screenWidth * 0.80,
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.to(() => LoginPage());
+                        if(ctrUsername.text != ctrDataUser.ctrUsername.value || ctrPassword.text != ctrDataUser.ctrPassword.value){
+                          Get.snackbar('Error', 'Email atau username salah',snackPosition: SnackPosition.BOTTOM,backgroundColor: Colors.red,colorText: Colors.white);
+                        }else{
+                          Get.off(() => HomePage());
+                        }
+
                       },
                       style: customButtonStyle,
                       child: Text(
@@ -111,7 +117,7 @@ class LoginPage extends StatelessWidget {
                       ),
                       onTap: () {
                         // Navigasi ke halaman tujuan saat teks diklik
-                        Get.off(() => SignUp());
+                        Get.to(() => SignUp());
                       },
                     ),
                   ),

@@ -84,7 +84,7 @@ class SignUp extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(right: 220),
-                    child: Text("SIGN UP",style: btnsignup,),
+                    child: Text("SIGN UP",style: btnsignup,)
                   ),
                   myText(Icons.person,"Username", "Ketik Username anda", false , ctrUsername),
                   myText(Icons.lock,"Password", "Ketik Password anda", true , ctrPassword),
@@ -95,7 +95,8 @@ class SignUp extends StatelessWidget {
                     width: screenWidth * 0.80,
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.to(() => LoginPage());
+                        ctrDataUser.datauser(ctrUsername.text.toString(), ctrPassword.text.toString(), ctrEmail.text.toString(), ctrPhone.text.toString());
+                        Get.off(() => LoginPage());
                       },
                       style: customButtonStyle,
                       child: Text(
