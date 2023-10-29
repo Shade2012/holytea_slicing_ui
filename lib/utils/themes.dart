@@ -36,11 +36,19 @@ ButtonStyle signUpStyleButton = ButtonStyle(
     ),
   ),
 );
+
+
 //Text Style
 
 TextStyle primaryText = GoogleFonts.inter(
     textStyle: TextStyle(
         color: primaryTextColor,
+        fontWeight: FontWeight.w700,
+        fontSize: figmaFontsize(36)));
+
+TextStyle primaryTextBl = GoogleFonts.inter(
+    textStyle: TextStyle(
+        color: secondaryColor,
         fontWeight: FontWeight.w700,
         fontSize: figmaFontsize(36)));
 

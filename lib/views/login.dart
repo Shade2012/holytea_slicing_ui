@@ -5,8 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:holytea_slicing_ui/controller/controller.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 import 'package:get/get.dart';
+
 import 'package:holytea_slicing_ui/views/homepage.dart';
 import 'package:holytea_slicing_ui/views/signup.dart';
+
 
 class LoginPage extends StatelessWidget {
    LoginPage({Key? key}) : super(key: key);
@@ -88,15 +90,24 @@ class LoginPage extends StatelessWidget {
                   myText(Icons.person,"Username", "Ketik Username anda", false , ctrUsername),
                   myText(Icons.lock,"Password", "Ketik Password anda", true , ctrPassword),
                   Container(
+
+                      margin: EdgeInsets.only(left: 170),
+                      child: Text("Forgot Password?",style: TextStyle(fontWeight: FontWeight.bold),)
+                  ),
+                  Container(
+
                     margin: EdgeInsets.only(bottom: 30 ,top: 30),
                     width: screenWidth * 0.80,
                     child: ElevatedButton(
                       onPressed: () {
+                        Get.to(() => LoginPage());
+
                         if(ctrUsername.text != ctrDataUser.ctrUsername.value || ctrPassword.text != ctrDataUser.ctrPassword.value){
                           Get.snackbar('Error', 'Email atau username salah',snackPosition: SnackPosition.BOTTOM,backgroundColor: Colors.red,colorText: Colors.white);
                         }else{
                           Get.off(() => HomePage());
                         }
+
 
                       },
                       style: customButtonStyle,
@@ -108,6 +119,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(right: 105),
+                    child: Text("Don’t have an account? sign up",style:TextStyle(fontWeight: FontWeight.bold),),
                     child: InkWell(
                       child: Text(
                         'Don’t have an account? sign up',
