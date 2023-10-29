@@ -7,7 +7,8 @@ import 'package:http/http.dart' as http;
 class HolyteaController extends GetxController{
   RxBool isLoading = false.obs;
   RxList<HolyteaModel> holytea = <HolyteaModel>[].obs;
-
+  RxInt selectedIndex = RxInt(0);
+  RxList<HolyteaModel> displayedData = <HolyteaModel>[].obs;
 
   @override
   void onInit() {
@@ -23,12 +24,22 @@ class HolyteaController extends GetxController{
       );
       if(response.statusCode == 200){
         holytea.value = holyteaModelFromJson(response.body);
+        displayedData.assignAll(holytea);
         isLoading.value = false;
       }else{
         print('Error:  ${response.statusCode}');
       }
     }catch(e){
       print(e);
+    }
+  }
+  void updateSelectedIndex(int index) {
+    if (selectedIndex.value != index) {
+      // Reset the previous selection
+      selectedIndex.value = index;
+    } else {
+      // Deselect the current selection
+      selectedIndex.value = -1;
     }
   }
 }

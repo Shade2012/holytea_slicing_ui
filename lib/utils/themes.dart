@@ -7,11 +7,13 @@ figmaFontsize(int fontSize) {
 
 //COLOR
 const Color primaryColor = Color(0xFF68AD50);
+
 const Color primaryTextColor = Colors.white;
 Color secondaryColor = Colors.black;
 const Color bgColor = Color.fromARGB(255, 243, 255, 238);
+const Color colorText = Color.fromARGB(255,137, 137, 137);
 const Color bgColorLogin_Register = Color.fromARGB(127, 217, 217, 217);
-Color secondaryBGColor = Color.fromARGB(255, 217, 217, 217);
+Color secondaryBGColor = Color.fromARGB(255, 217, 217, 217); //#D9D9D9
 //Button Style
 ButtonStyle customButtonStyle = ButtonStyle(
   backgroundColor: MaterialStateProperty.all<Color>(primaryColor),
@@ -36,6 +38,28 @@ ButtonStyle signUpStyleButton = ButtonStyle(
     ),
   ),
 );
+ButtonStyle iconStyleButton = ButtonStyle(
+  backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+  padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+    EdgeInsets.only(top: 5, bottom: 5),
+  ),
+  shape: MaterialStateProperty.all<OutlinedBorder>(
+    RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(
+          50.0), // Sesuaikan dengan radius yang Anda inginkan
+    ),
+  ),
+);
+ButtonStyle iconStyleButton2 = ButtonStyle(
+  backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+
+  shape: MaterialStateProperty.all<OutlinedBorder>(
+    RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(
+          50.0), // Sesuaikan dengan radius yang Anda inginkan
+    ),
+  ),
+);
 //Text Style
 
 TextStyle primaryText = GoogleFonts.inter(
@@ -53,6 +77,12 @@ TextStyle btnlogin = GoogleFonts.inter(
 TextStyle btnsignup = GoogleFonts.inter(
     textStyle: TextStyle(
         color: secondaryColor,
+        fontWeight: FontWeight.w700,
+        fontSize: figmaFontsize(24)));
+
+TextStyle specialText = GoogleFonts.inter(
+    textStyle: TextStyle(
+        color: primaryColor,
         fontWeight: FontWeight.w700,
         fontSize: figmaFontsize(24)));
 
@@ -87,8 +117,16 @@ TextStyle normalFontBlBold = GoogleFonts.inter(
 TextStyle normalFontBl = GoogleFonts.inter(
     textStyle: TextStyle(color: secondaryColor, fontSize: 20));
 
+TextStyle normalFontBlFigma = GoogleFonts.inter(
+    textStyle: TextStyle(color: colorText, fontSize: figmaFontsize(20)));
+
+TextStyle normalFontBlFigmaBlack = GoogleFonts.inter(
+    textStyle: TextStyle(color: secondaryColor, fontSize: figmaFontsize(14)));
+
+
 //IMAGE ASSETS
 String image_awal_set = "assets/image_awal_set.png";
 String image_signup_login = "assets/image_signup_login.png";
 String image_map = "assets/image_map.png";
 String image_logo_holytea = "assets/image_logo_holytea.png";
+String profile = "assets/profile.png";
