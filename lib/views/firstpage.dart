@@ -46,7 +46,7 @@ class FirstPage extends StatelessWidget {
                         width: screenWidth * 0.87,
                         child: ElevatedButton(
                           onPressed: () {
-                            Get.to(() => Sign_upLoginPage());
+                            Get.off(() => Sign_upLoginPage());
                           },
                           style: customButtonStyle,
                           child: Text(
