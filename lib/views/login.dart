@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
-import 'package:holytea_slicing_ui/controller/controller.dart';
+import 'package:holytea_slicing_ui/controller/controllerLogin_Register.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
   final TextEditingController ctrPassword = TextEditingController();
 
    Widget myText( IconData icon,String label,String hint, bool type, TextEditingController controller ){
-     Get.find<CtrDataUser>();
+     // Get.find<CtrDataUser>();
      return Container(
        margin: EdgeInsets.all(20),
 
@@ -100,12 +100,11 @@ class LoginPage extends StatelessWidget {
                     width: screenWidth * 0.80,
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.to(() => LoginPage());
-
                         if(ctrUsername.text != ctrDataUser.ctrUsername.value || ctrPassword.text != ctrDataUser.ctrPassword.value){
                           Get.snackbar('Error', 'Email atau username salah',snackPosition: SnackPosition.BOTTOM,backgroundColor: Colors.red,colorText: Colors.white);
                         }else{
-                          Get.off(() => HomePage());
+                          Get.to(() => HomePage());
+
                         }
 
 
@@ -119,7 +118,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(right: 105),
-                    child: Text("Don’t have an account? sign up",style:TextStyle(fontWeight: FontWeight.bold),),
+
                     child: InkWell(
                       child: Text(
                         'Don’t have an account? sign up',

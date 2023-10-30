@@ -38,6 +38,10 @@ dependencies:
   get: ^4.1.4
   google_fonts: ^4.0.5
   flutter_rating_bar: ^4.0.1
+  image_picker: ^1.0.4
+  shared_preferences:
+  flutter_spinkit: ^5.2.0
+  icons_launcher: ^2.1.4
 
 dev_dependencies:
   flutter_test:
@@ -66,11 +70,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
+
   assets:
     - assets/
-  #   - images/a_dot_ham.jpeg
-    # - assets/image_awal_set.png
-    # - assets/image_signup_login.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

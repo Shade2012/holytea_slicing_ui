@@ -1,13 +1,19 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:holytea_slicing_ui/controller/controller_profilepage.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/views/privacypage.dart';
+import 'package:holytea_slicing_ui/views/signup_login.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:holytea_slicing_ui/widgets/profilepagewidget.dart';
 
+
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+
+  ProfilepageController profileController = Get.put(ProfilepageController());
+
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +22,12 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: primaryColor,
-          leading: Icon(
-            Icons.arrow_back,
+          leading: IconButton(
+            onPressed: () {
+              //bakal pindah ke profile
+              Get.back();
+            },
+            icon: Icon(Icons.arrow_back,),
             color: Colors.white,
           ),
           title: Title(
@@ -32,24 +42,55 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
         body: Center(
-            child: Column(
+            child: ListView(
           children: [
             SizedBox(
               height: MediaQuery.sizeOf(context).height * .05,
             ),
-            Container(
-              //ini ntar ganti foto
-              height: MediaQuery.sizeOf(context).height * .18,
-              width: MediaQuery.sizeOf(context).height * .18,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: Colors.amber,
-              ),
-            ),
+            Obx(() {
+              return GestureDetector(
+                onTap: () {
+                  profileController.getImage(ImageSource.gallery);
+                },
+                child: Container(
+                  margin: EdgeInsets.only(top: 25),
+                  child: ClipRRect( // Menggunakan ClipRRect untuk memotong gambar yang dipilih
+                    borderRadius: BorderRadius.circular(500.0), // Membuat gambar menjadi bentuk lingkaran
+                    child: profileController.selectedImagePath.value.isEmpty
+                        ? Container(
+                      padding: EdgeInsets.only(bottom: 10),
+                      width: 200.0,
+                      height: 220.0,
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.person,
+                        size: 200,
+                        color: Colors.black,
+                      ),
+                    )
+                        :
+                    Container(
+                      margin: EdgeInsets.only(left: 90,right: 90),
+                        width: 200,
+                        height: 200,
+                        child: ClipOval(
+                          child: Image.file(File(profileController.selectedImagePath.value),fit: BoxFit.cover ),
+                        ))
+                  ),
+                ),
+              );
+            }),
+
             SizedBox(
               height: MediaQuery.sizeOf(context).height * .03,
             ),
-            Text("Username", style: primaryTextBl),
+            Obx(() =>Center(
+              child:
+                  Text(profileController.ctrUsername.value, style: primaryTextBl)),),
+
             SizedBox(
               height: MediaQuery.sizeOf(context).height * .05,
             ),
@@ -66,11 +107,30 @@ class ProfilePage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  titleProfile("Email"),
+
+
+                    Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text("Email", style: subHeaderText),
+                  ),
+
                   SizedBox(
                     height: 8,
                   ),
-                  contentProfile("damar@gmail.com"),
+
+                  Obx(() => Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      profileController.ctrEmail.value,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: secondaryColor,
+                      ),
+                    ),
+                  ),
+                  ),
+
+                
                   SizedBox(
                     height: 20,
                   ),
@@ -78,7 +138,19 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(
                     height: 8,
                   ),
-                  contentProfile("00047707407"),
+
+                  Obx(() =>Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      profileController.ctrPhone.value,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: secondaryColor,
+                      ),
+                    ),
+                  ),
+                  ),
+
                   SizedBox(
                     height: 30,
                   ),

@@ -43,15 +43,4 @@ class HolyteaController extends GetxController{
     }
   }
 }
-  class CtrDataUser extends GetxController {
-    final ctrUsername = RxString("");
-    final ctrPassword = RxString("");
-    final ctrEmail = RxString("");
-    final ctrPhone = RxString("");
-    datauser(String username,String pass,String email,String phone){
-      this.ctrUsername.value = username;
-      this.ctrPassword.value = pass;
-      this.ctrEmail.value = email;
-      this.ctrPhone.value = phone;
-    }
-  }
+

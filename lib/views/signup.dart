@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
-import 'package:holytea_slicing_ui/controller/controller.dart';
+import 'package:holytea_slicing_ui/controller/controllerLogin_Register.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/views/login.dart';
@@ -96,7 +96,7 @@ class SignUp extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         ctrDataUser.datauser(ctrUsername.text.toString(), ctrPassword.text.toString(), ctrEmail.text.toString(), ctrPhone.text.toString());
-                        Get.off(() => LoginPage());
+                        Get.to(() => LoginPage());
                       },
                       style: customButtonStyle,
                       child: Text(

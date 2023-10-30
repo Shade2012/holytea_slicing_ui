@@ -5,6 +5,7 @@ import 'package:holytea_slicing_ui/controller/controller.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 import 'package:holytea_slicing_ui/views/cartpage.dart';
 import 'package:holytea_slicing_ui/views/homepage.dart';
+import 'package:holytea_slicing_ui/views/profilepage.dart';
 import 'package:holytea_slicing_ui/widgets/loveWidget.dart';
 
 class Menupage extends StatelessWidget {
@@ -18,7 +19,7 @@ class Menupage extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    double screenCard = MediaQuery.of(context).size.width * 0.20;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
@@ -26,6 +27,7 @@ class Menupage extends StatelessWidget {
           IconButton(
             onPressed: () {
               //bakal pindah ke profile
+              Get.to(() => ProfilePage());
             },
             icon: Icon(Icons.person),
             style: iconStyleButton,
