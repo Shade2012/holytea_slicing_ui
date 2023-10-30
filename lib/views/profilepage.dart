@@ -125,7 +125,6 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(
                     height: 80,
                   ),
-                  
                   btnLogout(context)
                 ],
               ),
