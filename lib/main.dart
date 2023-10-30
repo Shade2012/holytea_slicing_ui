@@ -5,7 +5,9 @@ import 'package:holytea_slicing_ui/views/firstpage.dart';
 import 'package:holytea_slicing_ui/views/locationpage.dart';
 import 'package:holytea_slicing_ui/views/menupage.dart';
 import 'package:holytea_slicing_ui/views/privacypage.dart';
+import 'package:holytea_slicing_ui/views/profilepage.dart';
 import 'package:holytea_slicing_ui/views/signup.dart';
+import 'package:holytea_slicing_ui/views/splashscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: FirstPage(),
+      home: Splashscreen(),
 
     );
   }

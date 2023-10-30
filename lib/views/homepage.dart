@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
               Get.off(HomePage());
             } else if (index == 1) {
               // Navigate to MenuPage
-              Get.off(Menupage());
+              Get.off(() =>Menupage());
             } else if (index == 2) {
               // Navigate to CartPage
               Get.off(CartPage());
