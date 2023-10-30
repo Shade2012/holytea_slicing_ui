@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/views/privacypage.dart';
 import 'package:holytea_slicing_ui/views/signup_login.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:holytea_slicing_ui/widgets/profilepagewidget.dart';
+
 
 class ProfilePage extends StatelessWidget {
 
@@ -106,6 +108,7 @@ class ProfilePage extends StatelessWidget {
               child: Column(
                 children: [
 
+
                     Align(
                     alignment: Alignment.centerLeft,
                     child: Text("Email", style: subHeaderText),
@@ -126,19 +129,16 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   ),
+
+                
                   SizedBox(
                     height: 20,
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Phone",
-                      style: subHeaderText,
-                    ),
-                  ),
+                  titleProfile("Phone"),
                   SizedBox(
                     height: 8,
                   ),
+
                   Obx(() =>Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -150,6 +150,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   ),
+
                   SizedBox(
                     height: 30,
                   ),
@@ -160,15 +161,11 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(
                     height: 30,
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text("General", style: subHeaderText),
-                  ),
+                  titleProfile("General"),
                   SizedBox(
                     height: 20,
                   ),
                   Container(
-                    // margin: EdgeInsets.only(bottom: 50, top: 30),
                     width: screenWidth * 0.87,
                     child: ElevatedButton(
                       onPressed: () {
@@ -185,7 +182,6 @@ class ProfilePage extends StatelessWidget {
                     height: 20,
                   ),
                   Container(
-                    // margin: EdgeInsets.only(bottom: 50, top: 30),
                     width: screenWidth * 0.87,
                     child: ElevatedButton(
                       onPressed: () {
@@ -201,23 +197,7 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(
                     height: 80,
                   ),
-                  Container(
-                    // margin: EdgeInsets.only(bottom: 50, top: 30),
-                    width: screenWidth * 0.87,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Get.off(() => Sign_upLoginPage());
-                      },
-                      style: signUpStyleButton,
-                      child: Text(
-                        "Logout",
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontWeight: FontWeight.w700,
-                            fontSize: figmaFontsize(24)),
-                      ),
-                    ),
-                  )
+                  btnLogout(context)
                 ],
               ),
             ))
