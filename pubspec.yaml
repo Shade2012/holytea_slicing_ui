@@ -41,7 +41,7 @@ dependencies:
   image_picker: ^1.0.4
   shared_preferences:
   flutter_spinkit: ^5.2.0
-  icons_launcher: ^2.1.4
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:

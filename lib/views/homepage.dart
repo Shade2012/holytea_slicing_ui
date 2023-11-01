@@ -1,67 +1,225 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import '../controller/controller.dart';
 import '../utils/themes.dart';
+import '../widgets/adsTranslation.dart';
+import '../widgets/ewallet.dart';
+import '../widgets/loveWidget.dart';
 import 'cartpage.dart';
 import 'menupage.dart';
 
 class HomePage extends StatelessWidget {
-
-  int _currentIndex = 1;
+  final controller = Get.put(HolyteaController());
 
   @override
   Widget build(BuildContext context) {
-
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(),
-      body: SingleChildScrollView(
+      appBar: AppBar(
+        backgroundColor: primaryColor,
+        title: Title(
+          color: Colors.white,
+          child: Container(
+            margin: EdgeInsets.only(left: 0),
+            child: Image(
+              image: AssetImage(image_logo_holytea),
+              width: 100,
+              height: 40,
+            ),
+          ),
+        ),
+      ),
+      body: Container(
+        padding: EdgeInsets.only(left: 25,right: 25),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
 
+                Container(
+                  margin: EdgeInsets.only(top: 40),
+                  child: eWallet(),
+                ),
+
+
+              Container(
+                width: 340,
+                margin: EdgeInsets.only(top: 30),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(25),
+                  child: CarouselSlider(
+                    items: [ads_1, ads_2].map((i) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                            width: 340,
+                            height: 280,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              image: DecorationImage(
+
+                                image: AssetImage(i),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    }).toList(),
+                    options: CarouselOptions(
+                      height: 183,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 3),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeFactor: 0.3,
+                      enlargeCenterPage: true,
+                      scrollDirection: Axis.horizontal,
+                    ),
+                  ),
+                ),
+              ),
+
+
+
+              Container(
+                margin: EdgeInsets.only(top: 30,right: 200 ),
+                child: Text(
+                  "Best Seller",
+                  style: subHeaderText,
+                  textAlign: TextAlign.start,
+                ),
+              ),
+              Obx(() {
+                if (controller.isLoading.value) {
+                  return CircularProgressIndicator();
+                } else {
+                  final ratedProducts = controller.displayedData
+                      .where((product) => product.rating >= 4.5)
+                      .toList();
+
+                  if (ratedProducts.isEmpty) {
+                    return Text("No highly rated items available.");
+                  } else {
+                    return SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: ratedProducts.map((product) {
+                          return Container(
+                            width: 200, // Set a fixed width for each card
+                            margin: EdgeInsets.only(
+                                left: 8, right: 8, top: 8, bottom: 60),
+                            child: Card(
+                              elevation: 2,
+                              child: Column(
+                                children: [
+                                  Container(
+                                    width:
+                                        200, // Set a fixed width for the image container
+                                    height:
+                                        120, // Set a fixed height for the image container
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: NetworkImage(product.image),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(10),
+                                        topLeft: Radius.circular(10),
+                                      ),
+                                    ),
+                                    child: Container(
+                                      padding: EdgeInsets.only(
+                                          left: 145,
+                                          bottom: 75,
+                                          top: 5,
+                                          right: 7),
+                                      child: FavoriteIcon(),
+                                    ),
+                                  ),
+                                  ListTile(
+                                    title: Text(product.name,
+                                        style: normalFontBlFigmaBlack),
+                                    subtitle: RatingBar.builder(
+                                      initialRating: product.rating,
+                                      minRating: 1,
+                                      direction: Axis.horizontal,
+                                      allowHalfRating: true,
+                                      itemCount: 5,
+                                      itemSize: 15,
+                                      itemPadding:
+                                          EdgeInsets.symmetric(horizontal: 1.0),
+                                      itemBuilder: (context, _) => Icon(
+                                        Icons.star,
+                                        color: Colors.amber,
+                                      ),
+                                      onRatingUpdate: (double rating) {
+                                        print(null);
+                                      },
+                                    ),
+                                    trailing: Icon(Icons.shopping_cart_outlined,
+                                        color: Colors.green),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    );
+                  }
+                }
+              })
+            ],
+          ),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home,color: Colors.green),
-              label: "home",
-
-
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Colors.green),
+            label: "home",
+          ),
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: const EdgeInsets.only(right: 30),
+              child: IconButton(
+                onPressed: () {
+                  Get.off(() => Menupage());
+                },
+                icon: Icon(Icons.menu_book,  color: colorText),
+              ),
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.menu_book,color: colorText),
-                label: ""
-
+            label: "menu",
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(
+              onPressed: () {
+                Get.off(() => CartPage());
+              },
+              icon: Icon(Icons.shopping_cart_outlined, color: colorText),
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined,color: colorText)
-                ,
-                label: "cart"
-
+            label: "cart",
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(
+              onPressed: () {
+                Get.snackbar(
+                    "Page", "MessagePage tunggu di push alias sedang dibuat");
+              },
+              icon: Icon(Icons.message, color: colorText),
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.message_rounded,color: colorText)
-              ,
-              label: "chat"
-              ,
-            ),
-
-          ],
-          showSelectedLabels: false,
-          onTap: (index) {
-            if (index == 0) {
-              // Navigate to HomePage
-              //Nanti kamu ganti
-              Get.off(HomePage());
-            } else if (index == 1) {
-              // Navigate to MenuPage
-              Get.off(() =>Menupage());
-            } else if (index == 2) {
-              // Navigate to CartPage
-              Get.off(CartPage());
-            } else if (index == 3) {
-              // Navigate to MessagePage
-              // Get.off(MessagePage));
-              Get.snackbar("Page", "MessagePage tunggu di push alias sedang dibuat");
-            }
-
-          }
+            label: "chat",
+          ),
+        ],
+        showSelectedLabels: false,
       ),
     );
-
   }
 }
