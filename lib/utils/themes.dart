@@ -135,6 +135,12 @@ TextStyle contentTextVer2Bl = GoogleFonts.inter(
         fontWeight: FontWeight.w500,
         fontSize: figmaFontsize(20)));
 
+TextStyle contentTextVer2Grey = GoogleFonts.inter(
+    textStyle: TextStyle(
+        color: colorText,
+        fontWeight: FontWeight.w500,
+        fontSize: figmaFontsize(20)));
+
 TextStyle normalFontBlBold = GoogleFonts.inter(
     textStyle: TextStyle(
         color: secondaryColor, fontWeight: FontWeight.bold, fontSize: 20));
