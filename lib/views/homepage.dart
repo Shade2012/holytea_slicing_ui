@@ -105,7 +105,7 @@ class HomePage extends StatelessWidget {
                       .toList();
 
                   if (ratedProducts.isEmpty) {
-                    return Text("No highly rated items available.");
+                    return Text("Item Not Available");
                   } else {
                     return SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
