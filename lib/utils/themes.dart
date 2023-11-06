@@ -121,6 +121,16 @@ TextStyle contentTextGrey = GoogleFonts.inter(
     textStyle: TextStyle(
         color: colorText,
         fontWeight: FontWeight.w500,
+
+TextStyle contentTextVer3 = GoogleFonts.inter(
+    textStyle: TextStyle(
+        color: secondaryColor,
+        fontWeight: FontWeight.w700,
+        fontSize: figmaFontsize(14)));
+TextStyle contentTextVer4 = GoogleFonts.inter(
+    textStyle: TextStyle(
+        color: primaryTextColor,
+        fontWeight: FontWeight.w700,
         fontSize: figmaFontsize(14)));
 
 TextStyle contentTextVer2 = GoogleFonts.inter(
@@ -161,3 +171,5 @@ String image_signup_login = "assets/image_signup_login.png";
 String image_map = "assets/image_map.png";
 String image_logo_holytea = "assets/image_logo_holytea.png";
 String profile = "assets/profile.png";
+String ads_1 = "assets/ads_1.png";
+String ads_2 = "assets/ads_2.png";

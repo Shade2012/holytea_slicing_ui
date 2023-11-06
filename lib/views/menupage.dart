@@ -11,7 +11,7 @@ import 'package:holytea_slicing_ui/widgets/loveWidget.dart';
 class Menupage extends StatelessWidget {
   final controller = Get.put(HolyteaController());
   bool isItemFavorite = false;
-  int _currentIndex = 1;
+
   //margin: getMargin(200 > 133),
 
 
@@ -41,7 +41,7 @@ class Menupage extends StatelessWidget {
               child: Text(
                 "Menu",
                 style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -58,29 +58,29 @@ class Menupage extends StatelessWidget {
               color: bgColor,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Center(
+
               child: Column(
                 children: [
                   Container(
-                      margin: EdgeInsets.only(right: 193),
+                      margin: EdgeInsets.only(right: 180),
                       child: Text(
                         "Made With Love",
                         style: normalFontBlFigma,
                       )),
-                  Container(
-                      margin: EdgeInsets.only(right: 170),
-                      child: Text(
-                        "Special For You",
-                        style: specialText,
-                      ))
+                       Container(
+                         margin: EdgeInsets.only(right: 160),
+                         child: Text(
+                          "Special For You",
+                          style: specialText,textAlign: TextAlign.start,),
+                       )
                 ],
               ),
-            ),
+
           ),
           Container(
             height: 50,
             child: ListView(
-                scrollDirection: Axis.horizontal,
+              scrollDirection: Axis.horizontal,
               children: [
                 InkWell(
                   onTap: () {
@@ -333,10 +333,10 @@ class Menupage extends StatelessWidget {
                                     height: MediaQuery.of(context).size.width * 0.46,  // Use the screen width // Adjust the height as needed
 
                                     decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: NetworkImage(product2.image, ),
-                                        fit: BoxFit.cover,
-                                      ),
+                                        image: DecorationImage(
+                                          image: NetworkImage(product2.image, ),
+                                          fit: BoxFit.cover,
+                                        ),
                                         borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(10),
                                           topLeft: Radius.circular(10),
@@ -386,49 +386,50 @@ class Menupage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home,color: colorText),
+              icon: IconButton(
+                onPressed: () {
+                  Get.off(() => HomePage());
+                },
+                icon: Icon(Icons.home, color: colorText),
+              ),
               label: "home",
-
-
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.menu_book,color: Colors.green),
-                label: ""
+            BottomNavigationBarItem(
+              icon: Padding(
+                padding: const EdgeInsets.only(right: 30),
+                child: IconButton(
+                  onPressed: () {
 
+                  },
+                  icon: Icon(Icons.menu_book, color: Colors.green),
+                ),
+              ),
+              label: "menu",
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined,color: colorText)
-                ,
-                label: "cart"
-
+            BottomNavigationBarItem(
+              icon: IconButton(
+                onPressed: () {
+                  Get.off(() => CartPage());
+                },
+                icon: Icon(Icons.shopping_cart_outlined, color: colorText),
+              ),
+              label: "cart",
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.message_rounded,color: colorText)
-              ,
-                label: "chat"
-                ,
+            BottomNavigationBarItem(
+              icon: IconButton(
+                onPressed: () {
+                  Get.snackbar(
+                      "Page", "MessagePage tunggu di push alias sedang dibuat");
+                },
+                icon: Icon(Icons.message, color: colorText),
+              ),
+              label: "chat",
             ),
-
           ],
-        showSelectedLabels: false,
-    onTap: (index) {
-    if (index == 0) {
-    // Navigate to HomePage
-    //Nanti kamu ganti
-    Get.off(HomePage());
-    } else if (index == 1) {
-    // Navigate to MenuPage
-    Get.off(Menupage());
-    } else if (index == 2) {
-    // Navigate to CartPage
-    Get.off(CartPage());
-    } else if (index == 3) {
-      // Navigate to MessagePage
-      // Get.off(MessagePage));
-      Get.snackbar("Page", "MessagePage tunggu di push alias sedang dibuat");
-    }
+          showSelectedLabels: false,
 
-    }
       ),
     );
   }
