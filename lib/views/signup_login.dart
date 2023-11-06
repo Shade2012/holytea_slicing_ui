@@ -78,7 +78,7 @@ class Sign_upLoginPage extends StatelessWidget {
                         ],
                       ),
                       Container(
-                        margin: EdgeInsets.only(bottom: 50 ,top: 30),
+                        margin: EdgeInsets.only(bottom: 50 ,top: 30), 
                         width: screenWidth * 0.87,
                         child: ElevatedButton(
                           onPressed: () {
