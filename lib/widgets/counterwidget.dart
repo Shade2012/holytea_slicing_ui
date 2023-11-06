@@ -37,7 +37,7 @@ Widget CounterWidget() {
           ),
         ),
         SizedBox(
-          width: 16,
+          width: 20,
         ),
         FloatingActionButton(
           onPressed: () {
@@ -56,7 +56,7 @@ Widget CounterWidget() {
           ),
         ),
         SizedBox(
-          width: 16,
+          width: 20,
         ),
       ],
     ),

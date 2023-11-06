@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 import 'package:holytea_slicing_ui/widgets/checkedboxwidget.dart';
 import 'package:holytea_slicing_ui/widgets/counterwidget.dart';
@@ -19,7 +22,6 @@ class MyCustomPopUp extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              // width: MediaQuery.sizeOf(context).width * .9,
               height: MediaQuery.sizeOf(context).height * .4,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30), color: primaryColor),
@@ -70,14 +72,19 @@ class MyCustomPopUp extends StatelessWidget {
             CustomCheckbox(title: "Extra ice", subTitle: "subTitle"),
             CustomCheckbox(title: "Less ice", subTitle: "subTitle"),
             Container(
+              width: MediaQuery.sizeOf(context).width,
               // ini button belum di style yah
               height: 60,
               margin: EdgeInsets.symmetric(horizontal: 30),
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text("Add to cart"),
+                style: customButtonStyle,
+                child: Text(
+                  "Add to cart",
+                  style: btnlogin,
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -88,7 +95,7 @@ class MyCustomPopUp extends StatelessWidget {
 void showCustomModal(BuildContext context) {
   showModalBottomSheet(
     context: context,
-    isScrollControlled: true, // Allow content to be taller than the screen
+    isScrollControlled: true, 
     builder: (context) => MyCustomPopUp(),
   );
 }
