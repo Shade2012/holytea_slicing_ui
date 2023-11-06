@@ -99,6 +99,12 @@ TextStyle secondaryText = GoogleFonts.inter(
         fontWeight: FontWeight.w400,
         fontSize: figmaFontsize(24)));
 
+TextStyle secondaryTextBl = GoogleFonts.inter(
+    textStyle: TextStyle(
+        color: secondaryColor,
+        fontWeight: FontWeight.w400,
+        fontSize: figmaFontsize(24)));
+
 TextStyle subHeaderText = GoogleFonts.inter(
     textStyle: TextStyle(
         color: secondaryColor,
@@ -110,6 +116,11 @@ TextStyle contentText = GoogleFonts.inter(
         color: secondaryColor,
         fontWeight: FontWeight.w500,
         fontSize: figmaFontsize(14)));
+
+TextStyle contentTextGrey = GoogleFonts.inter(
+    textStyle: TextStyle(
+        color: colorText,
+        fontWeight: FontWeight.w500,
 
 TextStyle contentTextVer3 = GoogleFonts.inter(
     textStyle: TextStyle(
@@ -125,6 +136,18 @@ TextStyle contentTextVer4 = GoogleFonts.inter(
 TextStyle contentTextVer2 = GoogleFonts.inter(
     textStyle: TextStyle(
         color: primaryTextColor,
+        fontWeight: FontWeight.w500,
+        fontSize: figmaFontsize(20)));
+
+TextStyle contentTextVer2Bl = GoogleFonts.inter(
+    textStyle: TextStyle(
+        color: secondaryColor,
+        fontWeight: FontWeight.w500,
+        fontSize: figmaFontsize(20)));
+
+TextStyle contentTextVer2Grey = GoogleFonts.inter(
+    textStyle: TextStyle(
+        color: colorText,
         fontWeight: FontWeight.w500,
         fontSize: figmaFontsize(20)));
 
