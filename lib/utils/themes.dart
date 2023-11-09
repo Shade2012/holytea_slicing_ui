@@ -73,7 +73,7 @@ TextStyle primaryTextBl = GoogleFonts.inter(
     textStyle: TextStyle(
         color: secondaryColor,
         fontWeight: FontWeight.w700,
-        fontSize: figmaFontsize(36)));
+        fontSize: figmaFontsize(28)));
 
 TextStyle btnlogin = GoogleFonts.inter(
     textStyle: TextStyle(
@@ -121,6 +121,7 @@ TextStyle contentTextGrey = GoogleFonts.inter(
     textStyle: TextStyle(
         color: colorText,
         fontWeight: FontWeight.w500,
+        fontSize: figmaFontsize(14)));
 
 TextStyle contentTextVer3 = GoogleFonts.inter(
     textStyle: TextStyle(
