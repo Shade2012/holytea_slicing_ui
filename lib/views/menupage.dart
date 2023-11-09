@@ -7,6 +7,7 @@ import 'package:holytea_slicing_ui/views/cartpage.dart';
 import 'package:holytea_slicing_ui/views/homepage.dart';
 import 'package:holytea_slicing_ui/views/profilepage.dart';
 import 'package:holytea_slicing_ui/widgets/loveWidget.dart';
+import 'package:holytea_slicing_ui/widgets/popupwidget.dart';
 
 class Menupage extends StatelessWidget {
   final controller = Get.put(HolyteaController());
@@ -111,7 +112,6 @@ class Menupage extends StatelessWidget {
 
                     controller.displayedData.assignAll(chocoSeriesData);
                     controller.selectedIndex.value = 1;
-
                   },
                   child: Obx(() {
                     return Container(
@@ -270,59 +270,10 @@ class Menupage extends StatelessWidget {
                     return Row(
                       children: [
                         Expanded(
-                          child: Card(
-                            elevation: 2, // Customize the elevation as needed
-                            margin: EdgeInsets.all(8), // Customize the margin as needed
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: MediaQuery.of(context).size.width, // Use the screen width
-                                  height: MediaQuery.of(context).size.width * 0.46, // Use the screen width // Adjust the height as needed
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: NetworkImage(product1.image,),
-                                      fit: BoxFit.cover,
-                                    ),
-                                    borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(10),
-                                      topLeft: Radius.circular(10),
-                                    ),
-                                  ),
-                                  child: Container(
-                                    margin: EdgeInsets.only(left: 133,bottom: 135,top: 5,right: 7),
-                                    padding: EdgeInsets.all(0),
-                                    child: FavoriteIcon(),
-                                  ),
-                                ),
-
-
-                                ListTile(
-                                  title: Text(product1.name, style: normalFontBlFigmaBlack),
-                                  subtitle: RatingBar.builder(
-                                    initialRating: product1.rating,
-                                    minRating: 1,
-                                    direction: Axis.horizontal,
-                                    allowHalfRating: true,
-                                    itemCount: 5,
-                                    itemSize: 15,
-                                    itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                                    itemBuilder: (context, _) => Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                    ), onRatingUpdate: (double rating) {
-                                    print(null);
-                                  },
-                                  ),
-                                  trailing: Icon(Icons.shopping_cart_outlined,color: Colors.green,),
-                                  // Add more fields to display as needed
-                                ),
-                              ],
-                            ),
-                          ),
-
-                        ),
-                        if (product2 != null)
-                          Expanded(
+                          child: GestureDetector(
+                            onTap: () {
+                              showCustomModalForItem(product1);
+                            },
                             child: Card(
                               elevation: 2, // Customize the elevation as needed
                               margin: EdgeInsets.all(8), // Customize the margin as needed
@@ -330,17 +281,16 @@ class Menupage extends StatelessWidget {
                                 children: [
                                   Container(
                                     width: MediaQuery.of(context).size.width, // Use the screen width
-                                    height: MediaQuery.of(context).size.width * 0.46,  // Use the screen width // Adjust the height as needed
-
+                                    height: MediaQuery.of(context).size.width * 0.46, // Use the screen width // Adjust the height as needed
                                     decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: NetworkImage(product2.image, ),
-                                          fit: BoxFit.cover,
-                                        ),
-                                        borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(10),
-                                          topLeft: Radius.circular(10),
-                                        )
+                                      image: DecorationImage(
+                                        image: NetworkImage(product1.image,),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(10),
+                                        topLeft: Radius.circular(10),
+                                      ),
                                     ),
                                     child: Container(
                                       margin: EdgeInsets.only(left: 133,bottom: 135,top: 5,right: 7),
@@ -349,10 +299,11 @@ class Menupage extends StatelessWidget {
                                     ),
                                   ),
 
+
                                   ListTile(
-                                    title: Text(product2.name,style: normalFontBlFigmaBlack,),
+                                    title: Text(product1.name, style: normalFontBlFigmaBlack),
                                     subtitle: RatingBar.builder(
-                                      initialRating: product2.rating,
+                                      initialRating: product1.rating,
                                       minRating: 1,
                                       direction: Axis.horizontal,
                                       allowHalfRating: true,
@@ -367,8 +318,67 @@ class Menupage extends StatelessWidget {
                                     },
                                     ),
                                     trailing: Icon(Icons.shopping_cart_outlined,color: Colors.green,),
+                                    // Add more fields to display as needed
                                   ),
                                 ],
+                              ),
+                            ),
+                          ),
+
+                        ),
+                        if (product2 != null)
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                showCustomModalForItem(product2);
+                              },
+                              child: Card(
+                                elevation: 2, // Customize the elevation as needed
+                                margin: EdgeInsets.all(8), // Customize the margin as needed
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.of(context).size.width, // Use the screen width
+                                      height: MediaQuery.of(context).size.width * 0.46,  // Use the screen width // Adjust the height as needed
+
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: NetworkImage(product2.image, ),
+                                            fit: BoxFit.cover,
+                                          ),
+                                          borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(10),
+                                            topLeft: Radius.circular(10),
+                                          )
+                                      ),
+                                      child: Container(
+                                        margin: EdgeInsets.only(left: 133,bottom: 135,top: 5,right: 7),
+                                        padding: EdgeInsets.all(0),
+                                        child: FavoriteIcon(),
+                                      ),
+                                    ),
+
+                                    ListTile(
+                                      title: Text(product2.name,style: normalFontBlFigmaBlack,),
+                                      subtitle: RatingBar.builder(
+                                        initialRating: product2.rating,
+                                        minRating: 1,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: true,
+                                        itemCount: 5,
+                                        itemSize: 15,
+                                        itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                                        itemBuilder: (context, _) => Icon(
+                                          Icons.star,
+                                          color: Colors.amber,
+                                        ), onRatingUpdate: (double rating) {
+                                        print(null);
+                                      },
+                                      ),
+                                      trailing: Icon(Icons.shopping_cart_outlined,color: Colors.green,),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -386,49 +396,49 @@ class Menupage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-              icon: IconButton(
-                onPressed: () {
-                  Get.off(() => HomePage());
-                },
-                icon: Icon(Icons.home, color: colorText),
-              ),
-              label: "home",
+        items: [
+          BottomNavigationBarItem(
+            icon: IconButton(
+              onPressed: () {
+                Get.off(() => HomePage());
+              },
+              icon: Icon(Icons.home, color: colorText),
             ),
-            BottomNavigationBarItem(
-              icon: Padding(
-                padding: const EdgeInsets.only(right: 30),
-                child: IconButton(
-                  onPressed: () {
+            label: "home",
+          ),
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: const EdgeInsets.only(right: 30),
+              child: IconButton(
+                onPressed: () {
 
-                  },
-                  icon: Icon(Icons.menu_book, color: Colors.green),
-                ),
-              ),
-              label: "menu",
-            ),
-            BottomNavigationBarItem(
-              icon: IconButton(
-                onPressed: () {
-                  Get.off(() => CartPage());
                 },
-                icon: Icon(Icons.shopping_cart_outlined, color: colorText),
+                icon: Icon(Icons.menu_book, color: Colors.green),
               ),
-              label: "cart",
             ),
-            BottomNavigationBarItem(
-              icon: IconButton(
-                onPressed: () {
-                  Get.snackbar(
-                      "Page", "MessagePage tunggu di push alias sedang dibuat");
-                },
-                icon: Icon(Icons.message, color: colorText),
-              ),
-              label: "chat",
+            label: "menu",
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(
+              onPressed: () {
+                Get.off(() => CartPage());
+              },
+              icon: Icon(Icons.shopping_cart_outlined, color: colorText),
             ),
-          ],
-          showSelectedLabels: false,
+            label: "cart",
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(
+              onPressed: () {
+                Get.snackbar(
+                    "Page", "MessagePage tunggu di push alias sedang dibuat");
+              },
+              icon: Icon(Icons.message, color: colorText),
+            ),
+            label: "chat",
+          ),
+        ],
+        showSelectedLabels: false,
 
       ),
     );
