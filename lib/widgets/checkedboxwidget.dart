@@ -54,31 +54,39 @@ class CustomCheckboxState extends State<CustomCheckbox> {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: Theme.of(context).copyWith(
-        unselectedWidgetColor: primaryColor,
-      ),
-      child: CheckboxListTile(
-        controlAffinity: ListTileControlAffinity.leading,
-        title: Text(
-          widget.title,
-          style: contentTextVer2Bl,
-        ),
-        subtitle: Text(
-          widget.subTitle,
-          style: contentTextVer2Grey,
-        ),
-        value: isChecked,
-        onChanged: (value) {
-          setState(
-            () {
-              isChecked = value!;
+    return Column(
+      children: [
+        Theme(
+          data: Theme.of(context).copyWith(
+            unselectedWidgetColor: primaryColor,
+          ),
+          child: CheckboxListTile(
+            controlAffinity: ListTileControlAffinity.leading,
+            title: Text(
+              widget.title,
+              style: contentTextVer2Bl,
+            ),
+            subtitle: Text(
+              widget.subTitle,
+              style: contentTextVer2Grey,
+            ),
+            value: isChecked,
+            onChanged: (value) {
+              setState(
+                () {
+                  isChecked = value!;
+                },
+              );
             },
-          );
-        },
-        activeColor: primaryColor,
-        checkColor: Colors.white,
-      ),
+            activeColor: primaryColor,
+            checkColor: Colors.white,
+          ),
+        ),
+        Divider(
+          color: colorText,
+          thickness: 2,
+        ),
+      ],
     );
   }
 }
