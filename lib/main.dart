@@ -4,6 +4,7 @@ import 'package:holytea_slicing_ui/views/button.dart';
 import 'package:holytea_slicing_ui/views/chatpage.dart';
 import 'package:holytea_slicing_ui/views/messagelist.dart';
 import 'package:holytea_slicing_ui/views/firstpage.dart';
+import 'package:holytea_slicing_ui/views/homepage.dart';
 
 import 'package:holytea_slicing_ui/views/locationpage.dart';
 import 'package:holytea_slicing_ui/views/menupage.dart';

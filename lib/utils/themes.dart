@@ -11,7 +11,7 @@ const Color primaryColor = Color(0xFF68AD50);
 const Color primaryTextColor = Colors.white;
 Color secondaryColor = Colors.black;
 const Color bgColor = Color.fromARGB(255, 243, 255, 238);
-const Color colorText = Color.fromARGB(255,137, 137, 137);
+const Color colorText = Color.fromARGB(255, 137, 137, 137);
 const Color bgColorLogin_Register = Color.fromARGB(127, 217, 217, 217);
 Color secondaryBGColor = Color.fromARGB(255, 217, 217, 217); //#D9D9D9
 //Button Style
@@ -52,7 +52,6 @@ ButtonStyle iconStyleButton = ButtonStyle(
 );
 ButtonStyle iconStyleButton2 = ButtonStyle(
   backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-
   shape: MaterialStateProperty.all<OutlinedBorder>(
     RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(
@@ -117,10 +116,15 @@ TextStyle contentText = GoogleFonts.inter(
         fontWeight: FontWeight.w500,
         fontSize: figmaFontsize(14)));
 
-TextStyle contentTextGrey = GoogleFonts.inter(
+TextStyle contentTextVer3 = GoogleFonts.inter(
     textStyle: TextStyle(
-        color: colorText,
-        fontWeight: FontWeight.w500,
+        color: secondaryColor,
+        fontWeight: FontWeight.w700,
+        fontSize: figmaFontsize(14)));
+TextStyle contentTextVer4 = GoogleFonts.inter(
+    textStyle: TextStyle(
+        color: primaryTextColor,
+        fontWeight: FontWeight.w700,
         fontSize: figmaFontsize(14)));
 
 TextStyle contentTextVer2 = GoogleFonts.inter(
@@ -154,10 +158,11 @@ TextStyle normalFontBlFigma = GoogleFonts.inter(
 TextStyle normalFontBlFigmaBlack = GoogleFonts.inter(
     textStyle: TextStyle(color: secondaryColor, fontSize: figmaFontsize(14)));
 
-
 //IMAGE ASSETS
 String image_awal_set = "assets/image_awal_set.png";
 String image_signup_login = "assets/image_signup_login.png";
 String image_map = "assets/image_map.png";
 String image_logo_holytea = "assets/image_logo_holytea.png";
 String profile = "assets/profile.png";
+String ads_1 = "assets/ads_1.png";
+String ads_2 = "assets/ads_2.png";

@@ -1,5 +1,5 @@
-// import 'package:flutter/material.dart';
-// import 'package:holytea_slicing_ui/utils/themes.dart';
+import 'package:flutter/material.dart';
+import 'package:holytea_slicing_ui/utils/themes.dart';
 
 // class CheckedBox extends StatefulWidget {
 //   @override
@@ -66,7 +66,7 @@ class CustomCheckboxState extends State<CustomCheckbox> {
         ),
         subtitle: Text(
           widget.subTitle,
-          style: contentTextGrey,
+          style: contentTextVer2Grey,
         ),
         value: isChecked,
         onChanged: (value) {
