@@ -2,21 +2,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
-import 'package:holytea_slicing_ui/controller/controller_counter.dart';
 
-class CounterWidget extends StatelessWidget {
-  final CounterController controller = Get.put(CounterController());
+import '../controller/CartController.dart';
 
-
+class CounterWidget2 extends StatelessWidget {
+  final cartController = Get.put(CartController());
+  int index;
+  CounterWidget2({required this.index });
   @override
   Widget build(BuildContext context) {
+    final cartItem = cartController.cartItems[index];
     return Container(
-      child: Row(
+      child:  Row(
         children: [
           FloatingActionButton(
             onPressed: () {
-              controller.subtract();
-
+              cartController.decrementQuantity(index);
             },
             backgroundColor: bgColor,
             mini: true,
@@ -33,17 +34,17 @@ class CounterWidget extends StatelessWidget {
           SizedBox(
             width: 16,
           ),
-          Obx(() => Text(
-            '${controller.quantity}',
-            style: primaryTextBl,
-          ),
-          ),
+       Text(
+          '${cartItem.quantity}',
+          style: primaryTextBl,
+        ),
+
           SizedBox(
             width: 20,
           ),
           FloatingActionButton(
             onPressed: () {
-              controller.add();
+              cartController.incrementQuantity(index);
 
             },
             backgroundColor: primaryColor,
