@@ -9,6 +9,7 @@ import 'package:holytea_slicing_ui/views/homepage.dart';
 import 'package:holytea_slicing_ui/views/locationpage.dart';
 import 'package:holytea_slicing_ui/views/menupage.dart';
 import 'package:holytea_slicing_ui/views/orderpage.dart';
+import 'package:holytea_slicing_ui/views/paymentpage.dart';
 import 'package:holytea_slicing_ui/views/privacypage.dart';
 import 'package:holytea_slicing_ui/views/profilepage.dart';
 import 'package:holytea_slicing_ui/views/signup.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: OrderPage(),
+      home: PaymentPage(),
     );
   }
 }
