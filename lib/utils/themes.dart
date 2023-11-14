@@ -116,14 +116,12 @@ TextStyle contentText = GoogleFonts.inter(
         fontWeight: FontWeight.w500,
         fontSize: figmaFontsize(14)));
 
-<<<<<<< HEAD
-=======
 TextStyle contentTextGrey = GoogleFonts.inter(
     textStyle: TextStyle(
-        color: colorText,
-        fontWeight: FontWeight.w500,
+  color: colorText,
+  fontWeight: FontWeight.w500,
+));
 
->>>>>>> 006a7f3033f24c6431d40f51024cc32e90feb699
 TextStyle contentTextVer3 = GoogleFonts.inter(
     textStyle: TextStyle(
         color: secondaryColor,
@@ -174,3 +172,4 @@ String image_logo_holytea = "assets/image_logo_holytea.png";
 String profile = "assets/profile.png";
 String ads_1 = "assets/ads_1.png";
 String ads_2 = "assets/ads_2.png";
+String dark_choco = "assets/dark_choco.png";
