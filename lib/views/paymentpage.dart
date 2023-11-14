@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
+import 'package:holytea_slicing_ui/views/paymentalert.dart';
 import 'package:holytea_slicing_ui/widgets/checkedboxwidget.dart';
 
 class PaymentPage extends StatelessWidget {
@@ -85,7 +86,9 @@ class PaymentPage extends StatelessWidget {
                     width: MediaQuery.sizeOf(context).width,
                     height: 60,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(() => PaymentAlert());
+                      },
                       style: customButtonStyle,
                       child: Text(
                         "Pay Now",
