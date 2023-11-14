@@ -1,10 +1,12 @@
 class CartItem {
+  final int productId;
   final String productName;
   final String productImage;
   final int price;
-  final int quantity;
+  late int quantity;
 
   CartItem({
+    required this.productId,
     required this.productName,
     required this.productImage,
     required this.price,

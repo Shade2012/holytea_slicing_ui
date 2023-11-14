@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:holytea_slicing_ui/controller/MyPopUpController.dart';
 import 'package:holytea_slicing_ui/controller/controller.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 import 'package:holytea_slicing_ui/views/cartpage.dart';
@@ -11,6 +12,7 @@ import 'package:holytea_slicing_ui/widgets/popupwidget.dart';
 
 class Menupage extends StatelessWidget {
   final controller = Get.put(HolyteaController());
+  final myCustomPopUpController = Get.put(MyCustomPopUpController());
   bool isItemFavorite = false;
 
   //margin: getMargin(200 > 133),
@@ -258,6 +260,7 @@ class Menupage extends StatelessWidget {
             } else {
               return Expanded(
                 child: ListView.builder(
+                  physics: BouncingScrollPhysics(),
                   itemCount: (controller.displayedData.length / 2).ceil(),
                   itemBuilder: (context, index) {
                     final firstProductIndex = index * 2;
@@ -272,7 +275,7 @@ class Menupage extends StatelessWidget {
                         Expanded(
                           child: GestureDetector(
                             onTap: () {
-                              showCustomModalForItem(product1);
+                              myCustomPopUpController.showCustomModalForItem(product1,context);
                             },
                             child: Card(
                               elevation: 2, // Customize the elevation as needed
@@ -330,7 +333,7 @@ class Menupage extends StatelessWidget {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                showCustomModalForItem(product2);
+                                myCustomPopUpController.showCustomModalForItem(product2,context);
                               },
                               child: Card(
                                 elevation: 2, // Customize the elevation as needed
