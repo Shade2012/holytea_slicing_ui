@@ -11,7 +11,7 @@ const Color primaryColor = Color(0xFF68AD50);
 const Color primaryTextColor = Colors.white;
 Color secondaryColor = Colors.black;
 const Color bgColor = Color.fromARGB(255, 243, 255, 238);
-const Color colorText = Color.fromARGB(255,137, 137, 137);
+const Color colorText = Color.fromARGB(255, 137, 137, 137);
 const Color bgColorLogin_Register = Color.fromARGB(127, 217, 217, 217);
 Color secondaryBGColor = Color.fromARGB(255, 217, 217, 217); //#D9D9D9
 //Button Style
@@ -52,7 +52,6 @@ ButtonStyle iconStyleButton = ButtonStyle(
 );
 ButtonStyle iconStyleButton2 = ButtonStyle(
   backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-
   shape: MaterialStateProperty.all<OutlinedBorder>(
     RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(
@@ -117,12 +116,15 @@ TextStyle contentText = GoogleFonts.inter(
         fontWeight: FontWeight.w500,
         fontSize: figmaFontsize(14)));
 
+<<<<<<< HEAD
+=======
 TextStyle contentTextGrey = GoogleFonts.inter(
     textStyle: TextStyle(
         color: colorText,
         fontWeight: FontWeight.w500,
         fontSize: figmaFontsize(14)));
 
+>>>>>>> 006a7f3033f24c6431d40f51024cc32e90feb699
 TextStyle contentTextVer3 = GoogleFonts.inter(
     textStyle: TextStyle(
         color: secondaryColor,
@@ -167,7 +169,6 @@ TextStyle normalFontBlFigma2 = GoogleFonts.inter(
 
 TextStyle normalFontBlFigmaBlack = GoogleFonts.inter(
     textStyle: TextStyle(color: secondaryColor, fontSize: figmaFontsize(14)));
-
 
 //IMAGE ASSETS
 String image_awal_set = "assets/image_awal_set.png";

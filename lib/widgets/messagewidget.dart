@@ -39,7 +39,7 @@ Widget ChatWidget({
                   Text(name, style: contentTextVer2Bl),
                   Text(
                     subTitle,
-                    style: contentTextGrey,
+                    style: contentTextVer2Grey,
                   ),
                 ],
               ),
