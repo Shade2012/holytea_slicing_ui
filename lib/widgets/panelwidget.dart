@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
+import 'package:holytea_slicing_ui/views/chatpage.dart';
+import 'package:holytea_slicing_ui/views/orderpage.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class PanelWidget extends StatelessWidget {
@@ -23,7 +26,7 @@ class PanelWidget extends StatelessWidget {
         SizedBox(
           height: 15,
         ),
-        buildAboutText(context),
+        DetailAdress(context),
         SizedBox(
           height: 24,
         )
@@ -31,7 +34,7 @@ class PanelWidget extends StatelessWidget {
     );
   }
 
-  Widget buildAboutText(context) => Container(
+  Widget DetailAdress(context) => Container(
         padding: EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,9 +179,9 @@ class PanelWidget extends StatelessWidget {
                           height: 50,
                           width: 50,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.black,
-                          ),
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                  image: AssetImage(ads_1), fit: BoxFit.cover)),
                         ),
                         SizedBox(
                           width: 20,
@@ -215,6 +218,42 @@ class PanelWidget extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+            SizedBox(
+              height: 90,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: MediaQuery.sizeOf(context).width * .35,
+                  height: 60,
+                  // decoration: BoxDecoration(color: primaryColor),
+                  child: ElevatedButton(
+                      onPressed: () {
+                        Get.to(() => ChatPage());
+                      },
+                      style: customButtonStyle,
+                      child: Text(
+                        "Chat Driver",
+                        style: btnlogin,
+                      )),
+                ),
+                Container(
+                  width: MediaQuery.sizeOf(context).width * .35,
+                  height: 60,
+                  // decoration: BoxDecoration(color: primaryColor),
+                  child: ElevatedButton(
+                      onPressed: () {
+                        Get.to(() => OrderPage());
+                      },
+                      style: customButtonStyle,
+                      child: Text(
+                        "Detail Order",
+                        style: btnlogin,
+                      )),
+                )
+              ],
             )
           ],
         ),

@@ -44,6 +44,9 @@ class ChatPage extends StatelessWidget {
                       color: primaryColor,
                       text: "Sudah sampai dimana pak?",
                       textStyle: secondaryText),
+                  SizedBox(
+                    height: 20,
+                  ),
                   ChatWidgets(
                       alignment: Alignment.topLeft,
                       color: primaryTextColor,
