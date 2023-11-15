@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:holytea_slicing_ui/controller/controller_profilepage.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 import 'package:get/get.dart';
+import 'package:holytea_slicing_ui/views/editprofilepage.dart';
 import 'package:holytea_slicing_ui/views/privacypage.dart';
 import 'package:holytea_slicing_ui/views/signup_login.dart';
 import 'package:image_picker/image_picker.dart';
@@ -43,17 +44,13 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
         body: Center(
-            child: Column(
+            child: ListView(
           children: [
             SizedBox(
               height: MediaQuery.sizeOf(context).height * .05,
             ),
             Obx(() {
-              return GestureDetector(
-                onTap: () {
-                  profileController.getImage(ImageSource.gallery);
-                },
-                child: Container(
+                return Container(
                   margin: EdgeInsets.only(top: 25),
                   child: ClipRRect( // Menggunakan ClipRRect untuk memotong gambar yang dipilih
                     borderRadius: BorderRadius.circular(500.0), // Membuat gambar menjadi bentuk lingkaran
@@ -81,8 +78,7 @@ class ProfilePage extends StatelessWidget {
                           child: Image.file(File(profileController.selectedImagePath.value),fit: BoxFit.cover ),
                         ))
                   ),
-                ),
-              );
+                );
             }),
 
             SizedBox(
@@ -111,7 +107,6 @@ class ProfilePage extends StatelessWidget {
                   topRight: Radius.circular(50),
                 ),
               ),
-              child: SingleChildScrollView(
                 child: Column(
                   children: [
                       Align(
@@ -174,7 +169,7 @@ class ProfilePage extends StatelessWidget {
                       width: screenWidth * 0.87,
                       child: ElevatedButton(
                         onPressed: () {
-                          Get.to(() => PrivacyPage());
+                          Get.to(() => EditProfile());
                         },
                         style: signUpStyleButton,
                         child: Text(
@@ -206,7 +201,7 @@ class ProfilePage extends StatelessWidget {
                   ],
                 ),
               ),
-            ))
+            )
           ],
         )));
   }

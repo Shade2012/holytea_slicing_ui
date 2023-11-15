@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/views/login.dart';
+import 'package:holytea_slicing_ui/views/profilepage.dart';
 import 'package:holytea_slicing_ui/views/signup_login.dart';
 import 'package:holytea_slicing_ui/views/splashscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -38,6 +39,17 @@ class ProfilepageController extends GetxController {
         colorText: Colors.white,
       );
     }
+  }
+  void editprofile(String username,String email,String phone) async{
+    ctrUsername.value = username;
+    ctrEmail.value = email;
+    ctrPhone.value = phone;
+
+    await prefs.setString('username', ctrUsername.value);
+    await prefs.setString('email', ctrEmail.value);
+    await prefs.setString('phone', ctrPhone.value);
+    Get.snackbar("Congratulation", "Data berhasil dirubah");
+    Get.to(() => ProfilePage());
   }
 
   void checkSharedPreference() async {
