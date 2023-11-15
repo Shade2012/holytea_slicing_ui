@@ -21,7 +21,10 @@ class HolyteaController extends GetxController{
     try{
       final response = await http.get (
           Uri.parse('https://holytea-api.000webhostapp.com/api/data')
-      );
+
+         // Adjust the duration as needed
+
+    ).timeout(Duration(seconds: 10));
       if(response.statusCode == 200){
         holytea.value = holyteaModelFromJson(response.body);
         displayedData.assignAll(holytea);

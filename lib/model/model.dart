@@ -17,6 +17,8 @@ class HolyteaModel {
   int price;
   double rating;
   String image;
+  int quantity;
+
 
   HolyteaModel({
     required this.id,
@@ -26,6 +28,7 @@ class HolyteaModel {
     required this.price,
     required this.rating,
     required this.image,
+    required this.quantity,
   });
 
   factory HolyteaModel.fromJson(Map<String, dynamic> json) => HolyteaModel(
@@ -36,6 +39,7 @@ class HolyteaModel {
     price: json["price"],
     rating: json["rating"]?.toDouble(),
     image: json["image"],
+    quantity: 1,
   );
 
   Map<String, dynamic> toJson() => {
@@ -46,5 +50,6 @@ class HolyteaModel {
     "price": price,
     "rating": rating,
     "image": image,
+    "quantity": quantity,
   };
 }

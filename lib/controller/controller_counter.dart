@@ -1,15 +1,26 @@
+
 import 'package:get/get.dart';
 
+import '../model/model.dart';
+
 class CounterController extends GetxController {
-  RxInt value = 0.obs;
+
+  RxInt quantity = 1.obs;
+  RxInt totalPrice = 0.obs;
+
+
 
   void add() {
-    value.value++;
+    quantity.value++;
   }
-
+  void reset() {
+    quantity.value = 1; // Reset the value to 1
+  }
   void subtract() {
-    value.value--;
+    if(quantity.value  > 0){
+      quantity.value--;
+    }
 
-    
+
   }
 }

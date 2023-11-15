@@ -1,18 +1,26 @@
-// ignore_for_file: prefer_const_constructors
-
+import '../controller/MyPopUpController.dart';
+import '../controller/controller_counter.dart';
+import '../model/model.dart';
+import '../utils/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:holytea_slicing_ui/utils/themes.dart';
-import 'package:holytea_slicing_ui/widgets/checkedboxwidget.dart';
-import 'package:holytea_slicing_ui/widgets/counterwidget.dart';
-import 'package:holytea_slicing_ui/widgets/loveWidget.dart';
+
+import 'checkedboxwidget.dart';
+import 'counterwidget.dart';
+import 'loveWidget.dart';
 
 class MyCustomPopUp extends StatelessWidget {
+  final HolyteaModel product;
+  final MyCustomPopUpController controller = Get.put(MyCustomPopUpController());
+  final CounterController controllerCounter = Get.put(CounterController());
+
+  MyCustomPopUp({required this.product});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.sizeOf(context).height * 0.93,
-      width: MediaQuery.sizeOf(context).width,
+    return  Container(
+      height: MediaQuery.of(context).size.height * 0.93, // Adjust the percentage as needed
+      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: primaryTextColor,
         borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
@@ -22,46 +30,56 @@ class MyCustomPopUp extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: MediaQuery.sizeOf(context).height * .4,
+              height: MediaQuery.of(context).size.height * 0.25,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30), color: primaryColor),
+                borderRadius: BorderRadius.circular(30),
+                image: DecorationImage(
+                  image: NetworkImage(product.image),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Drink name",
+                  product.name,
                   style: primaryTextBl,
                 ),
                 Transform.scale(
                   scale: 1,
-                  child: FavoriteIcon(),
+                  child: Container(
+                    padding: EdgeInsets.only(right: 16, top: 5),
+                    width: 55,
+                    height: 40,
+                    child: FavoriteIcon(),
+                  ),
                 ),
               ],
             ),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CounterWidget(),
-                Text(
-                  "Rp xx.xxx,00",
-                  style: contentTextVer2Grey,
-                )
-              ],
-            ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
+
+               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CounterWidget(),
+                  Obx(() => Container(
+                    child: Text(
+                      "Rp " + (controllerCounter.quantity.value * product.price).toString(),
+                      style: contentTextVer2Grey,
+                    ),
+                  ),
+                  )
+
+                ],
+              ),
+
+            SizedBox(height: 20),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Add a toping?",
+                "Add a topping?",
                 style: primaryTextBl,
               ),
             ),
@@ -72,12 +90,13 @@ class MyCustomPopUp extends StatelessWidget {
             CustomCheckbox(title: "Extra ice", subTitle: "subTitle"),
             CustomCheckbox(title: "Less ice", subTitle: "subTitle"),
             Container(
-              width: MediaQuery.sizeOf(context).width,
-              // ini button belum di style yah
+              width: MediaQuery.of(context).size.width,
               height: 60,
               margin: EdgeInsets.symmetric(horizontal: 30),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.addToCart(product);
+                },
                 style: customButtonStyle,
                 child: Text(
                   "Add to cart",
@@ -89,13 +108,6 @@ class MyCustomPopUp extends StatelessWidget {
         ),
       ),
     );
-  }
-}
 
-void showCustomModal(BuildContext context) {
-  showModalBottomSheet(
-    context: context,
-    isScrollControlled: true, 
-    builder: (context) => MyCustomPopUp(),
-  );
+  }
 }
