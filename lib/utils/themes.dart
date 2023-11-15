@@ -15,6 +15,7 @@ const Color bgColor = Color.fromARGB(255, 243, 255, 238);
 const Color colorText = Color.fromARGB(255, 137, 137, 137);
 const Color bgColorLogin_Register = Color.fromARGB(127, 217, 217, 217);
 Color secondaryBGColor = Color.fromARGB(255, 217, 217, 217); //#D9D9D9
+Color primaryTransColor = Color.fromARGB(177, 104, 173, 80);
 //Button Style
 ButtonStyle customButtonStyle = ButtonStyle(
   backgroundColor: MaterialStateProperty.all<Color>(primaryColor),
@@ -153,6 +154,12 @@ TextStyle contentTextVer2Grey = GoogleFonts.inter(
         color: colorText,
         fontWeight: FontWeight.w500,
         fontSize: figmaFontsize(20)));
+
+TextStyle headingtext = GoogleFonts.inter(
+    textStyle: TextStyle(
+        color: secondaryColor,
+        fontWeight: FontWeight.w700,
+        fontSize: figmaFontsize(36)));
 
 TextStyle normalFontBlBold = GoogleFonts.inter(
     textStyle: TextStyle(
