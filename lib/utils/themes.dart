@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -116,15 +117,14 @@ TextStyle contentText = GoogleFonts.inter(
         fontWeight: FontWeight.w500,
         fontSize: figmaFontsize(14)));
 
-<<<<<<< HEAD
-=======
+
 TextStyle contentTextGrey = GoogleFonts.inter(
     textStyle: TextStyle(
         color: colorText,
         fontWeight: FontWeight.w500,
         fontSize: figmaFontsize(14)));
 
->>>>>>> 006a7f3033f24c6431d40f51024cc32e90feb699
+
 TextStyle contentTextVer3 = GoogleFonts.inter(
     textStyle: TextStyle(
         color: secondaryColor,

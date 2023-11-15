@@ -10,6 +10,7 @@ class HolyteaController extends GetxController{
   RxInt selectedIndex = RxInt(0);
   RxList<HolyteaModel> displayedData = <HolyteaModel>[].obs;
 
+
   @override
   void onInit() {
     // TODO: implement onInit

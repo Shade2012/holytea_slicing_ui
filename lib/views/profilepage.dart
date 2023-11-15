@@ -32,7 +32,8 @@ class ProfilePage extends StatelessWidget {
           ),
           title: Title(
             color: Colors.white,
-            child: Center(
+            child: Container(
+
               child: Text(
                 "My Profile",
                 style:
@@ -42,7 +43,7 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
         body: Center(
-            child: ListView(
+            child: Column(
           children: [
             SizedBox(
               height: MediaQuery.sizeOf(context).height * .05,
@@ -87,9 +88,14 @@ class ProfilePage extends StatelessWidget {
             SizedBox(
               height: MediaQuery.sizeOf(context).height * .03,
             ),
-            Obx(() =>Center(
-              child:
-                  Text(profileController.ctrUsername.value, style: primaryTextBl)),),
+            Center(
+              child: Obx(() =>
+                Text(
+                  profileController.ctrUsername.value,
+                  style: primaryTextBl,
+                ),
+              ),
+            ),
 
             SizedBox(
               height: MediaQuery.sizeOf(context).height * .05,
@@ -105,100 +111,100 @@ class ProfilePage extends StatelessWidget {
                   topRight: Radius.circular(50),
                 ),
               ),
-              child: Column(
-                children: [
-
-
-                    Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text("Email", style: subHeaderText),
-                  ),
-
-                  SizedBox(
-                    height: 8,
-                  ),
-
-                  Obx(() => Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      profileController.ctrEmail.value,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: secondaryColor,
-                      ),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                      Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text("Email", style: subHeaderText),
                     ),
-                  ),
-                  ),
 
-                
-                  SizedBox(
-                    height: 20,
-                  ),
-                  titleProfile("Phone"),
-                  SizedBox(
-                    height: 8,
-                  ),
-
-                  Obx(() =>Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      profileController.ctrPhone.value,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: secondaryColor,
-                      ),
+                    SizedBox(
+                      height: 8,
                     ),
-                  ),
-                  ),
 
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Divider(
-                    thickness: 3,
-                    color: primaryColor, // Set the color to white
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  titleProfile("General"),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    width: screenWidth * 0.87,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Get.to(() => PrivacyPage());
-                      },
-                      style: signUpStyleButton,
+                    Obx(() => Align(
+                      alignment: Alignment.centerLeft,
                       child: Text(
-                        "Edit Profile",
-                        style: btnsignup,
+                        profileController.ctrEmail.value,
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: secondaryColor,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    width: screenWidth * 0.87,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Get.to(() => PrivacyPage());
-                      },
-                      style: signUpStyleButton,
+                    ),
+
+
+                    SizedBox(
+                      height: 20,
+                    ),
+                    titleProfile("Phone"),
+                    SizedBox(
+                      height: 8,
+                    ),
+
+                    Obx(() =>Align(
+                      alignment: Alignment.centerLeft,
                       child: Text(
-                        "Privacy Policy",
-                        style: btnsignup,
+                        profileController.ctrPhone.value,
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: secondaryColor,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 80,
-                  ),
-                  btnLogout(context)
-                ],
+                    ),
+
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Divider(
+                      thickness: 3,
+                      color: primaryColor, // Set the color to white
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    titleProfile("General"),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      width: screenWidth * 0.87,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Get.to(() => PrivacyPage());
+                        },
+                        style: signUpStyleButton,
+                        child: Text(
+                          "Edit Profile",
+                          style: btnsignup,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      width: screenWidth * 0.87,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Get.to(() => PrivacyPage());
+                        },
+                        style: signUpStyleButton,
+                        child: Text(
+                          "Privacy Policy",
+                          style: btnsignup,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 80,
+                    ),
+                    btnLogout(context,profileController)
+                  ],
+                ),
               ),
             ))
           ],

@@ -62,22 +62,22 @@ class Menupage extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
 
-              child: Column(
-                children: [
-                  Container(
-                      margin: EdgeInsets.only(right: 180),
-                      child: Text(
-                        "Made With Love",
-                        style: normalFontBlFigma,
-                      )),
-                       Container(
-                         margin: EdgeInsets.only(right: 160),
-                         child: Text(
-                          "Special For You",
-                          style: specialText,textAlign: TextAlign.start,),
-                       )
-                ],
-              ),
+            child: Column(
+              children: [
+                Container(
+                    margin: EdgeInsets.only(right: 180),
+                    child: Text(
+                      "Made With Love",
+                      style: normalFontBlFigma,
+                    )),
+                Container(
+                  margin: EdgeInsets.only(right: 160),
+                  child: Text(
+                    "Special For You",
+                    style: specialText,textAlign: TextAlign.start,),
+                )
+              ],
+            ),
 
           ),
           Container(
