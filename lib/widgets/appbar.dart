@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:holytea_slicing_ui/utils/themes.dart';
+
+import '../utils/themes.dart';
+
+
+
 
 Widget AppBarWidget(BuildContext context, String title) {
   return Container(
@@ -16,7 +20,7 @@ Widget AppBarWidget(BuildContext context, String title) {
         ),
         Container(
           margin:
-              EdgeInsets.only(left: MediaQuery.of(context).size.width * .38),
+          EdgeInsets.only(left: MediaQuery.of(context).size.width * .38),
           child: Text(
             title,
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),

@@ -3,6 +3,10 @@ import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 import 'package:holytea_slicing_ui/views/signup_login.dart';
 
+import '../controller/controller_profilepage.dart';
+
+ProfilepageController profileController = Get.put(ProfilepageController());
+
 Widget titleProfile(String text) {
   return Align(
     alignment: Alignment.centerLeft,
@@ -42,12 +46,12 @@ Widget btnProfile(context, link) {
   );
 }
 
-Widget btnLogout(context) {
+Widget btnLogout(BuildContext context, ProfilepageController profileController) {
   return Container(
     width: MediaQuery.of(context).size.width * 0.87,
     child: ElevatedButton(
       onPressed: () {
-        Get.off(() => Sign_upLoginPage());
+        profileController.logOut();
       },
       style: signUpStyleButton,
       child: Text(
@@ -60,3 +64,4 @@ Widget btnLogout(context) {
     ),
   );
 }
+
