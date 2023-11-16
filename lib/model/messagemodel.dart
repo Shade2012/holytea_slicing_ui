@@ -23,13 +23,13 @@ List<ChatProfile> chatProfiles = [
   ChatProfile(
       profilePicture: "assets/profile.png",
       name: 'Sarwo edi',
-      subTitle: 'Pesanan anda telah sampai tujuan',
+      subTitle: 'Pesanan telah sampai tujuan',
       date: '10/19/23',
       path: 'Get.to()'),
   ChatProfile(
       profilePicture: "assets/profile.png",
       name: 'Pay',
-      subTitle: 'Di tugu dekat SMK RUS ya mas',
+      subTitle: 'Di tugu ya mas',
       date: '10/19/23',
       path: 'Get.to()'),
   ChatProfile(

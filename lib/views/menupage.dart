@@ -10,6 +10,8 @@ import 'package:holytea_slicing_ui/views/profilepage.dart';
 import 'package:holytea_slicing_ui/widgets/loveWidget.dart';
 import 'package:holytea_slicing_ui/widgets/popupwidget.dart';
 
+import 'messagelist.dart';
+
 class Menupage extends StatelessWidget {
   final controller = Get.put(HolyteaController());
   final myCustomPopUpController = Get.put(MyCustomPopUpController());
@@ -433,8 +435,7 @@ class Menupage extends StatelessWidget {
           BottomNavigationBarItem(
             icon: IconButton(
               onPressed: () {
-                Get.snackbar(
-                    "Page", "MessagePage tunggu di push alias sedang dibuat");
+                Get.off(() => MessageList());
               },
               icon: Icon(Icons.message, color: colorText),
             ),
