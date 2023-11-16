@@ -3,7 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:holytea_slicing_ui/model/messagemodel.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
+import 'package:holytea_slicing_ui/views/cartpage.dart';
 import 'package:holytea_slicing_ui/widgets/messagewidget.dart';
+import 'package:get/get.dart';
+
+import 'homepage.dart';
+import 'menupage.dart';
 
 class MessageList extends StatelessWidget {
   const MessageList({super.key});
@@ -60,6 +65,46 @@ class MessageList extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: IconButton(
+              onPressed: () {
+                Get.off(() => HomePage());
+              },
+              icon: Icon(Icons.home, color: colorText),
+            ),
+            label: "home",
+          ),
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: const EdgeInsets.only(right: 30),
+              child: IconButton(
+                onPressed: () {
+                  Get.off(() => Menupage());
+                },
+                icon: Icon(Icons.menu_book, color: colorText),
+              ),
+            ),
+            label: "menu",
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(
+              onPressed: () {
+                Get.off(() => CartPage());
+              },
+              icon: Icon(Icons.shopping_cart_outlined, color: colorText),
+            ),
+            label: "cart",
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.message, color: Colors.green),
+            label: "chat",
+          ),
+        ],
+        showSelectedLabels: false,
+
       ),
     );
   }

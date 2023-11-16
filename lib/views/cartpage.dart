@@ -10,6 +10,7 @@ import '../controller/controller_counter.dart';
 import '../model/cartmodel.dart';
 import '../utils/themes.dart';
 import 'homepage.dart';
+import 'messagelist.dart';
 
 class CartPage extends StatelessWidget {
   final cartController = Get.put(CartController());
@@ -163,8 +164,7 @@ class CartPage extends StatelessWidget {
           BottomNavigationBarItem(
             icon: IconButton(
               onPressed: () {
-                Get.snackbar(
-                    "Page", "MessagePage tunggu di push alias sedang dibuat");
+                Get.off(() => MessageList());
               },
               icon: Icon(Icons.message, color: colorText),
             ),

@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:holytea_slicing_ui/views/messagelist.dart';
 import '../controller/MyPopUpController.dart';
 import '../controller/controller.dart';
 import '../utils/themes.dart';
@@ -217,8 +218,7 @@ class HomePage extends StatelessWidget {
           BottomNavigationBarItem(
             icon: IconButton(
               onPressed: () {
-                Get.snackbar(
-                    "Page", "MessagePage tunggu di push alias sedang dibuat");
+                Get.off(() => MessageList());
               },
               icon: Icon(Icons.message, color: colorText),
             ),
