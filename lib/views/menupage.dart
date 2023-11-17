@@ -286,21 +286,38 @@ class Menupage extends StatelessWidget {
                                 children: [
                                   Container(
                                     width: MediaQuery.of(context).size.width, // Use the screen width
-                                    height: MediaQuery.of(context).size.width * 0.46, // Use the screen width // Adjust the height as needed
+                                    height: MediaQuery.of(context).size.width * 0.46,
+                                    child: Stack(
+                                      children: [
+                                        Container(
+                                          width: MediaQuery.of(context).size.width, // Use the screen width
+                                          height: MediaQuery.of(context).size.width * 0.46,
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(20),
+                                              topRight: Radius.circular(20),
+                                            ),
+                                            child: FadeInImage(
+                                              placeholder: AssetImage(image_placeholder),
+                                              image: NetworkImage(product1.image),
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Positioned(
+                                          top: 5,
+                                          right: 8,
+                                          child: Container(
+                                              child: FavoriteIcon()
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                     decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: NetworkImage(product1.image,),
-                                        fit: BoxFit.cover,
-                                      ),
                                       borderRadius: BorderRadius.only(
                                         topRight: Radius.circular(10),
                                         topLeft: Radius.circular(10),
                                       ),
-                                    ),
-                                    child: Container(
-                                      margin: EdgeInsets.only(left: 133,bottom: 135,top: 5,right: 7),
-                                      padding: EdgeInsets.all(0),
-                                      child: FavoriteIcon(),
                                     ),
                                   ),
 
@@ -344,22 +361,38 @@ class Menupage extends StatelessWidget {
                                   children: [
                                     Container(
                                       width: MediaQuery.of(context).size.width, // Use the screen width
-                                      height: MediaQuery.of(context).size.width * 0.46,  // Use the screen width // Adjust the height as needed
-
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: NetworkImage(product2.image, ),
-                                            fit: BoxFit.cover,
+                                      height: MediaQuery.of(context).size.width * 0.46,
+                                      child: Stack(
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.of(context).size.width, // Use the screen width
+                                            height: MediaQuery.of(context).size.width * 0.46,
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20),
+                                              ),
+                                              child: FadeInImage(
+                                                placeholder: AssetImage(image_placeholder),
+                                                image: NetworkImage(product2.image),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
                                           ),
-                                          borderRadius: BorderRadius.only(
-                                            topRight: Radius.circular(10),
-                                            topLeft: Radius.circular(10),
-                                          )
+                                          Positioned(
+                                            top: 5,
+                                            right: 8,
+                                            child: Container(
+                                                child: FavoriteIcon()
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                      child: Container(
-                                        margin: EdgeInsets.only(left: 133,bottom: 135,top: 5,right: 7),
-                                        padding: EdgeInsets.all(0),
-                                        child: FavoriteIcon(),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(10),
+                                          topLeft: Radius.circular(10),
+                                        ),
                                       ),
                                     ),
 

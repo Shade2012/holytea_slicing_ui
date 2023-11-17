@@ -127,29 +127,41 @@ class HomePage extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     Container(
-                                      width:
-                                          200, // Set a fixed width for the image container
-                                      height:
-                                          120, // Set a fixed height for the image container
+                                      width: 200,
+                                      height: 120,
+                                      child: Stack(
+                                        children: [
+                                          Container(
+                                            width: 200,
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20),
+                                              ),
+                                              child: FadeInImage(
+                                                placeholder: AssetImage(image_placeholder),
+                                                image: NetworkImage(product.image),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                            top: 5,
+                                            right: 8,
+                                            child: Container(
+                                                child: FavoriteIcon()
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                       decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: NetworkImage(product.image),
-                                          fit: BoxFit.cover,
-                                        ),
                                         borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(10),
                                           topLeft: Radius.circular(10),
                                         ),
                                       ),
-                                      child: Container(
-                                        padding: EdgeInsets.only(
-                                            left: 145,
-                                            bottom: 75,
-                                            top: 5,
-                                            right: 7),
-                                        child: FavoriteIcon(),
-                                      ),
                                     ),
+
                                     ListTile(
                                       title: Text(product.name,
                                           style: normalFontBlFigmaBlack),

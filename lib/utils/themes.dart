@@ -182,3 +182,5 @@ String profile = "assets/profile.png";
 String ads_1 = "assets/ads_1.png";
 String ads_2 = "assets/ads_2.png";
 String dark_choco = "assets/dark_choco.png";
+String image_placeholder = "assets/image_placeholder.png";
+String image_cart = "assets/cartimage.png";
