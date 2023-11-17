@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/views/button.dart';
+import 'package:holytea_slicing_ui/views/cartpage.dart';
 import 'package:holytea_slicing_ui/views/chatpage.dart';
 import 'package:holytea_slicing_ui/views/messagelist.dart';
 import 'package:holytea_slicing_ui/views/firstpage.dart';
@@ -31,9 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-
-      home: Splashscreen(),
-
+      home: CartPage(),
     );
   }
 }

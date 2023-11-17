@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/views/menupage.dart';
@@ -17,23 +16,19 @@ class CartPage extends StatelessWidget {
   final cartController = Get.put(CartController());
   final controllerCounter = Get.put(CounterController());
 
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
         title: Title(
           color: Colors.white,
-
           child: Container(
-
             child: Center(
               child: Text(
                 "My Cart",
                 style:
-                TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -49,6 +44,7 @@ class CartPage extends StatelessWidget {
             margin: EdgeInsets.only(right: 220),
             child: Text('Your Order(s)', style: subHeaderText),
           ),
+
           Expanded(
             child: Obx(() {
               if (cartController.cartItems.isEmpty) {
@@ -111,6 +107,40 @@ class CartPage extends StatelessWidget {
 
 
 
+
+
+          // Dibawah adalah kodingan untuk menampilkan total price
+          // Card(
+          //   elevation: 4,
+          //   margin: const EdgeInsets.all(16),
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(16),
+          //     child:
+          //     Row(
+          //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //       children: [
+          //         Text(
+          //           'Total Price:',
+          //           style: TextStyle(fontWeight: FontWeight.bold),
+          //         ),
+          //         Obx(() {
+          //           // Calculate the total price by summing up totalItemPrice of all items
+          //           double totalPrice = 0;
+          //           for (CartItem cartItem in cartController.cartItems) {
+          //             totalPrice += cartItem.price * cartItem.quantity;
+          //           }
+          //
+          //           return Text(
+          //             'Rp $totalPrice', // Display the total price
+          //             style: TextStyle(fontWeight: FontWeight.bold),
+          //           );
+          //         }),
+          //       ],
+          //     ),
+          //   ),
+          // ),
+       
+
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -138,9 +168,7 @@ class CartPage extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: IconButton(
-              onPressed: () {
-
-              },
+              onPressed: () {},
               icon: Icon(Icons.shopping_cart_outlined, color: Colors.green),
             ),
             label: "cart",
@@ -156,7 +184,6 @@ class CartPage extends StatelessWidget {
           ),
         ],
         showSelectedLabels: false,
-
       ),
     );
   }

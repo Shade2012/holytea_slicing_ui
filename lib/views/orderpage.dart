@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 
 class OrderPage extends StatelessWidget {
@@ -11,9 +12,14 @@ class OrderPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
-        leading: Icon(
-          Icons.arrow_back,
-          color: Colors.white,
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
         ),
         title: Title(
           color: Colors.white,
@@ -61,6 +67,84 @@ class OrderPage extends StatelessWidget {
                         child: Text(
                           "●  Pesanan sedang dikirim oleh driver",
                           style: contentText,
+                        )),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+              child: Column(children: [
+                Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "Alamat Pengiriman",
+                      style: contentTextVer2Bl,
+                    )),
+                Text(
+                  "Jalan Sukun Raya No.09, Besito Kulon, Besito, Kec. Gebog, Kabupaten Kudus, Jawa Tengah 59333",
+                  style: TextStyle(
+                      color: colorText,
+                      fontSize: figmaFontsize(14),
+                      fontWeight: FontWeight.w500),
+                )
+              ]),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+              padding: EdgeInsets.all(25),
+              width: MediaQuery.sizeOf(context).width,
+              decoration: BoxDecoration(
+                  color: bgColor, borderRadius: BorderRadius.circular(15)),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.fromLTRB(0, 0, 20, 20),
+                        width: 100,
+                        height: 125,
+                        decoration: BoxDecoration(
+                            image:
+                                DecorationImage(image: AssetImage(dark_choco))),
+                      ),
+                      SizedBox(
+                        height: 100,
+                        width: MediaQuery.sizeOf(context).width * .405,
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Dark Choco",
+                                  style: contentTextVer2Bl,
+                                ),
+                                Text(
+                                  "x1",
+                                  style: contentTextVer2Bl,
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [Text("Harga"), Text("Rp10.000")],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [Text("Ongkir"), Text("Rp2.000")],
+                            ),
+                          ],
                         ),
                       ),
                       Align(
