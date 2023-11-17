@@ -104,7 +104,6 @@ class OrderPage extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(25),
               width: MediaQuery.sizeOf(context).width,
-              // height: MediaQuery.sizeOf(context).height * .5,
               decoration: BoxDecoration(
                   color: bgColor, borderRadius: BorderRadius.circular(15)),
               child: Column(
@@ -115,7 +114,6 @@ class OrderPage extends StatelessWidget {
                         margin: EdgeInsets.fromLTRB(0, 0, 20, 20),
                         width: 100,
                         height: 125,
-                        // color: Colors.lime,
                         decoration: BoxDecoration(
                             image:
                                 DecorationImage(image: AssetImage(dark_choco))),
