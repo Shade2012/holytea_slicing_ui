@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/views/menupage.dart';
+import 'package:holytea_slicing_ui/views/paymentpage.dart';
 import 'package:holytea_slicing_ui/widgets/counterwidget.dart';
 import 'package:holytea_slicing_ui/widgets/counterwidgetCart.dart';
 import 'package:holytea_slicing_ui/widgets/ewallet.dart';
@@ -16,23 +16,19 @@ class CartPage extends StatelessWidget {
   final cartController = Get.put(CartController());
   final controllerCounter = Get.put(CounterController());
 
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
         title: Title(
           color: Colors.white,
-
           child: Container(
-
             child: Center(
               child: Text(
                 "My Cart",
                 style:
-                TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -48,40 +44,38 @@ class CartPage extends StatelessWidget {
             margin: EdgeInsets.only(right: 220),
             child: Text('Your Order(s)', style: subHeaderText),
           ),
-          Expanded(
-            child:
-            Obx(() {
-              return ListView.builder(
-                itemCount: cartController.cartItems.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final cartItem = cartController.cartItems[index];
-                  final totalItemPrice = cartItem.price * cartItem.quantity;
-                  return ListTile(
-                    title: Text(cartItem.productName),
-                    leading: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Container(
-                        width: 95,
-                        height: 200,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(cartItem.productImage),
-                            fit: BoxFit.fill,
-                          ),
+          Expanded(child: Obx(() {
+            return ListView.builder(
+              itemCount: cartController.cartItems.length,
+              itemBuilder: (BuildContext context, int index) {
+                final cartItem = cartController.cartItems[index];
+                final totalItemPrice = cartItem.price * cartItem.quantity;
+                return ListTile(
+                  title: Text(cartItem.productName),
+                  leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      width: 95,
+                      height: 200,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(cartItem.productImage),
+                          fit: BoxFit.fill,
                         ),
                       ),
                     ),
-                    subtitle: CounterWidget2(index: index), // This widget should correctly access cartItem
-                    trailing: Text(
-                      "Rp $totalItemPrice",
-                      style: normalFontBlFigma2,
-                    ),
-                  );
-                },
-              );
-            })
-
-          ),
+                  ),
+                  subtitle: CounterWidget2(
+                      index:
+                          index), // This widget should correctly access cartItem
+                  trailing: Text(
+                    "Rp $totalItemPrice",
+                    style: normalFontBlFigma2,
+                  ),
+                );
+              },
+            );
+          })),
 
           // Dibawah adalah kodingan untuk menampilkan total price
           // Card(
@@ -116,9 +110,10 @@ class CartPage extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width,
             height: 60,
-            margin: EdgeInsets.symmetric(horizontal: 30,vertical: 30),
+            margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
             child: ElevatedButton(
               onPressed: () {
+                Get.off(() => PaymentPage());
               },
               style: customButtonStyle,
               child: Text(
@@ -154,9 +149,7 @@ class CartPage extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: IconButton(
-              onPressed: () {
-
-              },
+              onPressed: () {},
               icon: Icon(Icons.shopping_cart_outlined, color: Colors.green),
             ),
             label: "cart",
@@ -172,7 +165,6 @@ class CartPage extends StatelessWidget {
           ),
         ],
         showSelectedLabels: false,
-
       ),
     );
   }

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 import 'package:holytea_slicing_ui/widgets/chatbar.dart';
 import 'package:holytea_slicing_ui/widgets/chatwidget.dart';
@@ -13,9 +14,14 @@ class ChatPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
-        leading: Icon(
-          Icons.arrow_back,
-          color: primaryTextColor,
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: primaryTextColor,
+          ),
         ),
         title: Title(
           color: primaryTextColor,

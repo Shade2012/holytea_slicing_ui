@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 
 class OrderPage extends StatelessWidget {
@@ -11,9 +12,14 @@ class OrderPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
-        leading: Icon(
-          Icons.arrow_back,
-          color: Colors.white,
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
         ),
         title: Title(
           color: Colors.white,
@@ -98,7 +104,6 @@ class OrderPage extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(25),
               width: MediaQuery.sizeOf(context).width,
-              // height: MediaQuery.sizeOf(context).height * .5,
               decoration: BoxDecoration(
                   color: bgColor, borderRadius: BorderRadius.circular(15)),
               child: Column(
@@ -109,7 +114,6 @@ class OrderPage extends StatelessWidget {
                         margin: EdgeInsets.fromLTRB(0, 0, 20, 20),
                         width: 100,
                         height: 125,
-                        // color: Colors.lime,
                         decoration: BoxDecoration(
                             image:
                                 DecorationImage(image: AssetImage(dark_choco))),
