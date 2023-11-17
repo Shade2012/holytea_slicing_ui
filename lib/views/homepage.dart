@@ -21,6 +21,8 @@ class HomePage extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+          leading: null,
+
         backgroundColor: primaryColor,
         title: Title(
           color: Colors.white,
@@ -35,17 +37,14 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.only(left: 25,right: 25),
+        padding: EdgeInsets.only(left: 25, right: 25),
         child: SingleChildScrollView(
           child: Column(
             children: [
-
-                Container(
-                  margin: EdgeInsets.only(top: 40),
-                  child: eWallet(),
-                ),
-
-
+              Container(
+                margin: EdgeInsets.only(top: 40),
+                child: eWallet(),
+              ),
               Container(
                 width: 340,
                 margin: EdgeInsets.only(top: 30),
@@ -64,7 +63,6 @@ class HomePage extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(25),
                               image: DecorationImage(
-
                                 image: AssetImage(i),
                                 fit: BoxFit.cover,
                               ),
@@ -88,11 +86,8 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-
-
-
               Container(
-                margin: EdgeInsets.only(top: 30,right: 200 ),
+                margin: EdgeInsets.only(top: 30, right: 200),
                 child: Text(
                   "Best Seller",
                   style: subHeaderText,
@@ -118,9 +113,10 @@ class HomePage extends StatelessWidget {
                             width: 200, // Set a fixed width for each card
                             margin: EdgeInsets.only(
                                 left: 8, right: 8, top: 8, bottom: 60),
-                            child:  GestureDetector(
+                            child: GestureDetector(
                               onTap: () {
-                                myCustomPopUpController.showCustomModalForItem(product,context);
+                                myCustomPopUpController.showCustomModalForItem(
+                                    product, context);
                               },
                               child: Card(
                                 elevation: 2,
@@ -160,8 +156,8 @@ class HomePage extends StatelessWidget {
                                         allowHalfRating: true,
                                         itemCount: 5,
                                         itemSize: 15,
-                                        itemPadding:
-                                            EdgeInsets.symmetric(horizontal: 1.0),
+                                        itemPadding: EdgeInsets.symmetric(
+                                            horizontal: 1.0),
                                         itemBuilder: (context, _) => Icon(
                                           Icons.star,
                                           color: Colors.amber,
@@ -170,7 +166,8 @@ class HomePage extends StatelessWidget {
                                           print(null);
                                         },
                                       ),
-                                      trailing: Icon(Icons.shopping_cart_outlined,
+                                      trailing: Icon(
+                                          Icons.shopping_cart_outlined,
                                           color: Colors.green),
                                     ),
                                   ],
@@ -201,7 +198,7 @@ class HomePage extends StatelessWidget {
                 onPressed: () {
                   Get.off(() => Menupage());
                 },
-                icon: Icon(Icons.menu_book,  color: colorText),
+                icon: Icon(Icons.menu_book, color: colorText),
               ),
             ),
             label: "menu",
