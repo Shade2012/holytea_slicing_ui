@@ -3,9 +3,13 @@ import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 import 'package:holytea_slicing_ui/views/paymentalert.dart';
 import 'package:holytea_slicing_ui/widgets/checkedboxwidget.dart';
+import '../controller/CartController.dart';
+import '../model/cartmodel.dart';
+
 
 class PaymentPage extends StatelessWidget {
-  const PaymentPage({super.key});
+  final cartController = Get.put(CartController());
+ PaymentPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -69,14 +73,24 @@ class PaymentPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+
+
                       Text(
                         "Total :",
                         style: subHeaderText,
                       ),
-                      Text(
-                        "Rp xxx.xxx,00",
-                        style: subHeaderText,
-                      )
+                      Obx(() {
+                        // Calculate the total price by summing up totalItemPrice of all items
+                        double totalPrice = 0;
+                        for (CartItem cartItem in cartController.cartItems) {
+                          totalPrice += cartItem.price * cartItem.quantity;
+                        }
+
+                        return Text(
+                          'Rp $totalPrice', // Display the total price
+                          style: subHeaderText,
+                        );
+                      }),
                     ],
                   ),
                   SizedBox(
@@ -87,7 +101,7 @@ class PaymentPage extends StatelessWidget {
                     height: 60,
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.to(() => PaymentAlert());
+                        Get.off(() => PaymentAlert());
                       },
                       style: customButtonStyle,
                       child: Text(

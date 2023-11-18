@@ -22,6 +22,7 @@ class _FavoriteIconState extends State<FavoriteIcon> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(right: 10,bottom: 7),
       decoration: BoxDecoration(
         color: Color.fromARGB(177, 217, 217, 217),
         borderRadius: BorderRadius.circular(50),

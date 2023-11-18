@@ -31,11 +31,37 @@ class MyCustomPopUp extends StatelessWidget {
           children: [
             Container(
               height: MediaQuery.of(context).size.height * 0.25,
+              width: 320,
+              child: Stack(
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.25,
+                    width: 320,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
+                      child: FadeInImage(
+                        placeholder: AssetImage(image_placeholder),
+                        image: NetworkImage(product.image),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 5,
+                    right: 8,
+                    child: Container(
+                        child: FavoriteIcon()
+                    ),
+                  ),
+                ],
+              ),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                image: DecorationImage(
-                  image: NetworkImage(product.image),
-                  fit: BoxFit.cover,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(10),
+                  topLeft: Radius.circular(10),
                 ),
               ),
             ),

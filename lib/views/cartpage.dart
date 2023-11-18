@@ -44,38 +44,70 @@ class CartPage extends StatelessWidget {
             margin: EdgeInsets.only(right: 220),
             child: Text('Your Order(s)', style: subHeaderText),
           ),
-          Expanded(child: Obx(() {
-            return ListView.builder(
-              itemCount: cartController.cartItems.length,
-              itemBuilder: (BuildContext context, int index) {
-                final cartItem = cartController.cartItems[index];
-                final totalItemPrice = cartItem.price * cartItem.quantity;
-                return ListTile(
-                  title: Text(cartItem.productName),
-                  leading: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Container(
-                      width: 95,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(cartItem.productImage),
-                          fit: BoxFit.fill,
+
+          Expanded(
+            child: Obx(() {
+              if (cartController.cartItems.isEmpty) {
+                return Center(
+                  child: Image.asset(image_cart),
+                );
+              } else {
+                return Column(
+                  children: [
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: cartController.cartItems.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final cartItem = cartController.cartItems[index];
+                          final totalItemPrice = cartItem.price * cartItem.quantity;
+                          return ListTile(
+                            title: Text(cartItem.productName),
+                            leading: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Container(
+                                width: 95,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: NetworkImage(cartItem.productImage),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            subtitle: CounterWidget2(index: index),
+                            trailing: Text(
+                              "Rp $totalItemPrice",
+                              style: normalFontBlFigma2,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 60,
+                      margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Get.off(PaymentPage());
+                        },
+                        style: customButtonStyle,
+                        child: Text(
+                          "Make Order",
+                          style: btnlogin,
                         ),
                       ),
                     ),
-                  ),
-                  subtitle: CounterWidget2(
-                      index:
-                          index), // This widget should correctly access cartItem
-                  trailing: Text(
-                    "Rp $totalItemPrice",
-                    style: normalFontBlFigma2,
-                  ),
+                  ],
                 );
-              },
-            );
-          })),
+              }
+            }),
+          ),
+
+
+
+
+
 
           // Dibawah adalah kodingan untuk menampilkan total price
           // Card(
@@ -107,21 +139,8 @@ class CartPage extends StatelessWidget {
           //     ),
           //   ),
           // ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: 60,
-            margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-            child: ElevatedButton(
-              onPressed: () {
-                Get.off(() => PaymentPage());
-              },
-              style: customButtonStyle,
-              child: Text(
-                "Make Order",
-                style: btnlogin,
-              ),
-            ),
-          ),
+       
+
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
