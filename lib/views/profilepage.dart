@@ -5,6 +5,7 @@ import 'package:holytea_slicing_ui/controller/controller_profilepage.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
 import 'package:get/get.dart';
 import 'package:holytea_slicing_ui/views/editprofilepage.dart';
+import 'package:holytea_slicing_ui/views/menupage.dart';
 import 'package:holytea_slicing_ui/views/privacypage.dart';
 import 'package:holytea_slicing_ui/views/signup_login.dart';
 import 'package:image_picker/image_picker.dart';
@@ -26,7 +27,7 @@ class ProfilePage extends StatelessWidget {
           leading: IconButton(
             onPressed: () {
               //bakal pindah ke profile
-              Get.back();
+              Get.off(() => Menupage());
             },
             icon: Icon(Icons.arrow_back,),
             color: Colors.white,
@@ -171,10 +172,10 @@ class ProfilePage extends StatelessWidget {
                         onPressed: () {
                           Get.to(() => EditProfile());
                         },
-                        style: signUpStyleButton,
+                        style: customButtonStyle,
                         child: Text(
                           "Edit Profile",
-                          style: btnsignup,
+                          style: btnlogin,
                         ),
                       ),
                     ),
@@ -185,12 +186,12 @@ class ProfilePage extends StatelessWidget {
                       width: screenWidth * 0.87,
                       child: ElevatedButton(
                         onPressed: () {
-                          Get.to(() => PrivacyPage());
+                          Get.off(() => PrivacyPage());
                         },
-                        style: signUpStyleButton,
+                        style: customButtonStyle,
                         child: Text(
                           "Privacy Policy",
-                          style: btnsignup,
+                          style: btnlogin,
                         ),
                       ),
                     ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:holytea_slicing_ui/views/homepage.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:holytea_slicing_ui/widgets/panelwidget.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
+import 'package:get/get.dart';
+import 'menupage.dart';
 
 class LocationPage extends StatefulWidget {
   const LocationPage({super.key});
@@ -21,19 +24,24 @@ class _LocationPageState extends State<LocationPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
-        leading: Icon(
-          Icons.arrow_back,
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () {
+            //bakal pindah ke profile
+            Get.off(() => HomePage());
+          },
+          icon: Icon(Icons.arrow_back,),
           color: Colors.white,
         ),
         title: Title(
           color: Colors.white,
-          child: Center(
+
             child: Text(
               "Track Location",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
-          ),
+
         ),
       ),
       body: SlidingUpPanel(

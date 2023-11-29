@@ -14,6 +14,7 @@ class ChatPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
+
         leading: GestureDetector(
           onTap: () {
             Get.back();

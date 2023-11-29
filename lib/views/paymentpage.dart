@@ -5,6 +5,7 @@ import 'package:holytea_slicing_ui/views/paymentalert.dart';
 import 'package:holytea_slicing_ui/widgets/checkedboxwidget.dart';
 import '../controller/CartController.dart';
 import '../model/cartmodel.dart';
+import 'cartpage.dart';
 
 
 class PaymentPage extends StatelessWidget {
@@ -16,16 +17,7 @@ class PaymentPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
-        leading: IconButton(
-          onPressed: () {
-            //bakal pindah ke profile
-            Get.back();
-          },
-          icon: Icon(
-            Icons.arrow_back,
-          ),
-          color: Colors.white,
-        ),
+        automaticallyImplyLeading: false,
         title: Title(
           color: Colors.white,
           child: Center(

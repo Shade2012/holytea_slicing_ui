@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:holytea_slicing_ui/views/profilepage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import '../controller/controllerLogin_Register.dart';
@@ -49,6 +50,14 @@ class EditProfile extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
+        leading: IconButton(
+          onPressed: () {
+            //bakal pindah ke profile
+            Get.off(() => ProfilePage());
+          },
+          icon: Icon(Icons.arrow_back,),
+          color: Colors.white,
+        ),
         title: Title(
           color: Colors.white,
 

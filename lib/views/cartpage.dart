@@ -21,6 +21,7 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
+        automaticallyImplyLeading: false,
         title: Title(
           color: Colors.white,
           child: Container(
@@ -89,7 +90,7 @@ class CartPage extends StatelessWidget {
                       margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
                       child: ElevatedButton(
                         onPressed: () {
-                          Get.off(PaymentPage());
+                          Get.to(PaymentPage());
                         },
                         style: customButtonStyle,
                         child: Text(
@@ -139,7 +140,7 @@ class CartPage extends StatelessWidget {
           //     ),
           //   ),
           // ),
-       
+
 
         ],
       ),

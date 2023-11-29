@@ -49,7 +49,7 @@ class ProfilepageController extends GetxController {
     await prefs.setString('email', ctrEmail.value);
     await prefs.setString('phone', ctrPhone.value);
     Get.snackbar("Congratulation", "Data berhasil dirubah");
-    Get.to(() => ProfilePage());
+    Get.off(() => ProfilePage());
   }
 
   void checkSharedPreference() async {
@@ -66,7 +66,6 @@ class ProfilepageController extends GetxController {
   void logOut() async {
     await prefs.clear();
     Get.off(() => LoginPage());
-    // Implement logout logic here
   }
 }
 
