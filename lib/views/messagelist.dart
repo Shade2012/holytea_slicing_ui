@@ -19,6 +19,7 @@ class MessageList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
+        automaticallyImplyLeading: false,
         title: Title(
           color: Colors.white,
           child: Center(

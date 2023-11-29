@@ -73,15 +73,7 @@ class MyCustomPopUp extends StatelessWidget {
                   product.name,
                   style: primaryTextBl,
                 ),
-                Transform.scale(
-                  scale: 1,
-                  child: Container(
-                    padding: EdgeInsets.only(right: 16, top: 5),
-                    width: 55,
-                    height: 40,
-                    child: FavoriteIcon(),
-                  ),
-                ),
+
               ],
             ),
             SizedBox(height: 20),

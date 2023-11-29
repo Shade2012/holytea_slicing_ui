@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -27,7 +27,7 @@ class OrderPage extends StatelessWidget {
             child: Text(
               "Order",
               style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -63,98 +63,82 @@ class OrderPage extends StatelessWidget {
                             style: contentTextVer2Bl,
                           )),
                       Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          "●  Pesanan sedang dikirim oleh driver",
-                          style: contentText,
-                        )),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-              child: Column(children: [
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "Alamat Pengiriman",
-                      style: contentTextVer2Bl,
-                    )),
-                Text(
-                  "Jalan Sukun Raya No.09, Besito Kulon, Besito, Kec. Gebog, Kabupaten Kudus, Jawa Tengah 59333",
-                  style: TextStyle(
-                      color: colorText,
-                      fontSize: figmaFontsize(14),
-                      fontWeight: FontWeight.w500),
-                )
-              ]),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-              padding: EdgeInsets.all(25),
-              width: MediaQuery.sizeOf(context).width,
-              decoration: BoxDecoration(
-                  color: bgColor, borderRadius: BorderRadius.circular(15)),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.fromLTRB(0, 0, 20, 20),
-                        width: 100,
-                        height: 125,
-                        decoration: BoxDecoration(
-                            image:
-                                DecorationImage(image: AssetImage(dark_choco))),
-                      ),
-                      SizedBox(
-                        height: 100,
-                        width: MediaQuery.sizeOf(context).width * .405,
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Dark Choco",
-                                  style: contentTextVer2Bl,
-                                ),
-                                Text(
-                                  "x1",
-                                  style: contentTextVer2Bl,
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [Text("Harga"), Text("Rp10.000")],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [Text("Ongkir"), Text("Rp2.000")],
-                            ),
-                          ],
-                        ),
-                      ),
-                      Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            "07-06-2023 13:27",
+                            "●  Pesanan sedang dikirim oleh driver",
                             style: contentText,
                           )),
                     ],
                   ),
+                ),
+              ),
+
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                padding: EdgeInsets.all(25),
+                width: MediaQuery.sizeOf(context).width,
+                decoration: BoxDecoration(
+                    color: bgColor, borderRadius: BorderRadius.circular(15)),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 20, 20),
+                          width: 100,
+                          height: 125,
+                          decoration: BoxDecoration(
+                              image:
+                              DecorationImage(image: AssetImage(dark_choco))),
+                        ),
+                        SizedBox(
+                          height: 100,
+                          width: MediaQuery.sizeOf(context).width * .405,
+                          child: Column(
+
+                            children: [
+                              Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Text(
+                                    "07-06-2023 13:27",
+                                    style: contentText,
+                                  )),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Dark Choco",
+                                    style: contentTextVer2Bl,
+                                  ),
+                                  Text(
+                                    "x1",
+                                    style: contentTextVer2Bl,
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [Text("Harga"), Text("Rp10.000")],
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [Text("Ongkir"), Text("Rp2.000")],
+                              ),
+                            ],
+                          ),
+                        ),
+
+                      ],
+                    )
+                  ],
                 ),
               ),
               SizedBox(
@@ -197,7 +181,7 @@ class OrderPage extends StatelessWidget {
                           // color: Colors.lime,
                           decoration: BoxDecoration(
                               image:
-                                  DecorationImage(image: AssetImage(dark_choco))),
+                              DecorationImage(image: AssetImage(dark_choco))),
                         ),
                         SizedBox(
                           height: 100,

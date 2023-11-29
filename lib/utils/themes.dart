@@ -8,7 +8,8 @@ figmaFontsize(int fontSize) {
 
 //COLOR
 const Color primaryColor = Color(0xFF68AD50);
-
+const Color trackcolor = Color.fromARGB(255, 53, 195, 40);
+const Color trackcolor2 = Color.fromARGB(255, 38, 230, 21);
 const Color primaryTextColor = Colors.white;
 Color secondaryColor = Colors.black;
 const Color bgColor = Color.fromARGB(255, 243, 255, 238);
@@ -184,3 +185,4 @@ String ads_2 = "assets/ads_2.png";
 String dark_choco = "assets/dark_choco.png";
 String image_placeholder = "assets/image_placeholder.png";
 String image_cart = "assets/cartimage.png";
+String tracklocatiom = "assets/tracklocation.png";

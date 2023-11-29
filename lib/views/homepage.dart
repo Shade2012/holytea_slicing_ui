@@ -10,6 +10,7 @@ import '../widgets/adsTranslation.dart';
 import '../widgets/ewallet.dart';
 import '../widgets/loveWidget.dart';
 import 'cartpage.dart';
+import 'locationpage.dart';
 import 'menupage.dart';
 
 class HomePage extends StatelessWidget {
@@ -24,6 +25,7 @@ class HomePage extends StatelessWidget {
           leading: null,
 
         backgroundColor: primaryColor,
+        automaticallyImplyLeading: false,
         title: Title(
           color: Colors.white,
           child: Container(
@@ -86,6 +88,64 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
+              GestureDetector(
+                onTap:(){
+                  Get.to(() => LocationPage());
+                },
+                child: Card(
+                  margin: EdgeInsets.only(top: 30),
+                  color: trackcolor,
+                  child: Column(
+                    children: [
+                      Container(
+                          padding: EdgeInsets.only(top: 20),
+                          child: Text("Track Pesanan Anda",style: btnlogin)),
+                      Container(
+                        padding: EdgeInsets.only(top: 20),
+                        child:Column(
+                          children: [
+                            Container(
+                                padding: EdgeInsets.only(left: 70),
+                                height: 32,
+                                child: Icon(Icons.motorcycle,size: 40,)
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(bottom: 30),
+                              child: Row(
+                                children: [
+                                  Container(
+
+                                    width: 220.0, // Adjust the width of the first segment
+                                    child: LinearProgressIndicator(
+                                      color: trackcolor2,
+                                      backgroundColor: Colors.green, // Color of the first segment
+                                      value: 1.0, // Full progress for the first segment
+                                    ),
+                                  ),
+                                  // Adjust the width of the space between the segments
+                                  Container(
+                                    width: 114.7, // Adjust the width of the second segment
+                                    child: LinearProgressIndicator(
+                                      color: Colors.white,
+                                      backgroundColor: Colors.white, // Color of the second segment
+                                      value: 1.0, // Full progress for the second segment
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+
+
+
+
+                          ],
+                        ),
+                      )
+                    ],
+                  )
+                ),
+              ),
+
               Container(
                 margin: EdgeInsets.only(top: 30, right: 200),
                 child: Text(

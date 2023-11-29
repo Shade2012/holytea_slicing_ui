@@ -28,6 +28,7 @@ class Menupage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             onPressed: () {

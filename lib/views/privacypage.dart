@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:holytea_slicing_ui/utils/themes.dart';
+import 'package:get/get.dart';
+import 'package:holytea_slicing_ui/views/profilepage.dart';
 
 class PrivacyPage extends StatelessWidget {
   const PrivacyPage({super.key});
@@ -9,19 +11,22 @@ class PrivacyPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
-        leading: Icon(
-          Icons.arrow_back,
+        leading: IconButton(
+          onPressed: () {
+            //bakal pindah ke profile
+            Get.off(() => ProfilePage());
+          },
+          icon: Icon(Icons.arrow_back,),
           color: Colors.white,
         ),
         title: Title(
           color: Colors.white,
-          child: Center(
             child: Text(
               "Privacy Policy",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
-          ),
+
         ),
       ),
       body: Container(
