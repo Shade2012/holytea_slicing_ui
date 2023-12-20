@@ -21,7 +21,7 @@ class HolyteaController extends GetxController{
     isLoading.value = true;
     try{
       final response = await http.get (
-          Uri.parse('https://holytea-api.000webhostapp.com/api/data')
+          Uri.parse('https://holytea22.000webhostapp.com/api/data')
 
          // Adjust the duration as needed
 
