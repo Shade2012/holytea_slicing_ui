@@ -9,6 +9,7 @@ figmaFontsize(int fontSize) {
 //COLOR
 const Color primaryColor = Color(0xFF68AD50);
 const Color trackcolor = Color.fromARGB(255, 53, 195, 40);
+const Color newPrimaryColor = Color.fromARGB(255, 38, 160, 52);
 const Color trackcolor2 = Color.fromARGB(255, 38, 230, 21);
 const Color primaryTextColor = Colors.white;
 Color secondaryColor = Colors.black;
@@ -16,10 +17,11 @@ const Color bgColor = Color.fromARGB(255, 243, 255, 238);
 const Color colorText = Color.fromARGB(255, 137, 137, 137);
 const Color bgColorLogin_Register = Color.fromARGB(127, 217, 217, 217);
 Color secondaryBGColor = Color.fromARGB(255, 217, 217, 217); //#D9D9D9
+Color newsecondaryBGColor = Color.fromARGB(255, 210, 210, 210); //#D2D2D2
 Color primaryTransColor = Color.fromARGB(177, 104, 173, 80);
 //Button Style
 ButtonStyle customButtonStyle = ButtonStyle(
-  backgroundColor: MaterialStateProperty.all<Color>(primaryColor),
+  backgroundColor: MaterialStateProperty.all<Color>(newPrimaryColor),
   padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
     EdgeInsets.only(top: 15, bottom: 15),
   ),
@@ -85,9 +87,20 @@ TextStyle btnlogin = GoogleFonts.inter(
 
 TextStyle btnsignup = GoogleFonts.inter(
     textStyle: TextStyle(
-        color: secondaryColor,
+        color: Colors.black,
         fontWeight: FontWeight.w700,
         fontSize: figmaFontsize(24)));
+
+TextStyle newtextlogin = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.w700,
+        fontSize: figmaFontsize(24)));
+TextStyle newtextloginsecondary = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.w500,
+        fontSize: figmaFontsize(20)));
 
 TextStyle specialText = GoogleFonts.inter(
     textStyle: TextStyle(

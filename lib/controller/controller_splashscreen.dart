@@ -15,7 +15,7 @@ void checkSharedPrefrence()async{
 prefs = await SharedPreferences.getInstance();
 Future.delayed(Duration(seconds: 2),(){
   if(prefs.getString('username') == null || prefs.getString('pass') == null ){
-    Get.off(() => FirstPage());
+    Get.off(() => LoginPage());
   }else{
     Get.off(() => HomePage());
   }
