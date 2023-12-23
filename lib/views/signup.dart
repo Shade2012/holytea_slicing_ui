@@ -10,33 +10,75 @@ import 'package:holytea_slicing_ui/views/login.dart';
 class SignUp extends StatelessWidget {
   SignUp({Key? key}) : super(key: key);
   final CtrDataUser ctrDataUser = Get.put(CtrDataUser()); // Mendaftarkan CtrDataUser
-
+  final controller2 = Get.put(CtrDataUser());
   final TextEditingController ctrUsername = TextEditingController();
   final TextEditingController ctrPassword = TextEditingController();
   final TextEditingController ctrEmail = TextEditingController();
   final TextEditingController ctrPhone = TextEditingController();
-
-  Widget myText( IconData icon,String label,String hint, bool type, TextEditingController controller ){
-    Get.find<CtrDataUser>();
+  Widget myText(
+      IconData icon,
+      String label,
+      String hint,
+      bool type,
+      TextEditingController controller,
+      ) {
     return Container(
       margin: EdgeInsets.all(20),
-
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
-        // Atur radius sesuai keinginan Anda
-        color: secondaryBGColor,
+        color: Colors.white,
       ),
       child: TextField(
         controller: controller,
+        obscureText: type,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: hint,
           labelText: label,
           prefixIcon: Icon(icon),
-          labelStyle: GoogleFonts.inter(textStyle:TextStyle(color: Colors.black, )),
-          hintStyle: GoogleFonts.inter(textStyle:TextStyle(color: Colors.black,fontSize: 12 )),
+          labelStyle: GoogleFonts.montserrat(
+            textStyle: TextStyle(color: newsecondaryBGColor),
+          ),
+          hintStyle: GoogleFonts.montserrat(
+            textStyle: TextStyle(color: newsecondaryBGColor, fontSize: 12),
+          ),
         ),
-        obscureText: type,
+      ),
+    );
+  }
+
+  Widget password(
+      IconData icon,
+      String label,
+      String hint,
+      TextEditingController controller,
+      ) {
+    return Container(
+      margin: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Colors.white,
+      ),
+      child: Obx(()=> TextField(
+        controller: controller,
+        obscureText: controller2.obscureText.value,
+        decoration: InputDecoration(
+          suffixIcon: IconButton(onPressed: (){
+            controller2.obscureText.value =!controller2.obscureText.value;
+          },
+            icon: Icon(controller2.obscureText.value?Icons.visibility_off:Icons.visibility),),
+          // suffixIcon: ),
+          border: InputBorder.none,
+          hintText: hint,
+          labelText: label,
+          prefixIcon: Icon(icon),
+          labelStyle: TextStyle(color: newsecondaryBGColor),
+          hintStyle: TextStyle(
+            color: newsecondaryBGColor,
+            fontSize: 12,
+          ),
+        ),
+      ),
       ),
     );
   }
@@ -48,7 +90,7 @@ class SignUp extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: new AssetImage(image_signup_login),
+              image: new AssetImage(image_awal_set),
               fit: BoxFit.cover)),
       child: Container(
           decoration: BoxDecoration(
@@ -60,38 +102,28 @@ class SignUp extends StatelessWidget {
             backgroundColor: Colors.transparent,
             body: Center(
               child: SingleChildScrollView(
-                child: Container(
-                  width: screenWidth * 0.90,
-                  height: screenHeight * 0.90,
-                  margin: EdgeInsets.symmetric(horizontal : 20),
-                  decoration: BoxDecoration(
-                    color: bgColorLogin_Register,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(45.0), // Kiri atas 15px
-                      topRight: Radius.circular(5.0),  // Kanan atas 5px
-                      bottomLeft: Radius.circular(5.0), // Kiri bawah 5px
-                      bottomRight: Radius.circular(45.0), // Kanan bawah 15px
-                    ),
-                  ),
+
+
                   child: Column(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(right: 207),
-                        width: 100.0, // Atur lebar sesuai keinginan Anda
-                        height: 100.0, // Atur tinggi sesuai keinginan Anda
-                        child: Image.asset(image_logo_holytea),
+                        margin: EdgeInsets.only(top: screenHeight * 0.04,bottom: screenHeight * 0.03),
+                        width: screenWidth,
+                        child: Column(
+                          children: [
+                            Center(child: Text("Hello,", style: newtextlogin)),
+                            Center(
+                                child: Text("Welcome to Holytea",
+                                    style: newtextloginsecondary))
+                          ],
+                        ),
                       ),
-                      Container(
-                          margin: EdgeInsets.only(right: 220),
-                          child: Text("SIGN UP",style: btnsignup,)
-                      ),
-                      myText(Icons.person,"Username", "Ketik Username anda", false , ctrUsername),
-                      myText(Icons.lock,"Password", "Ketik Password anda", true , ctrPassword),
-                      myText(Icons.email,"Email", "Ketik Email anda", false , ctrEmail),
-                      myText(Icons.phone,"Phone", "Ketik No.HP anda", false , ctrPhone),
+                      myText(Icons.person_outlined,"Username", "Ketik Username anda", false , ctrUsername),
+                      myText(Icons.mail_outline,"Email", "Ketik Email anda", true , ctrEmail),
+                      password(Icons.lock_outline,"Password", "Ketik Password anda", ctrPassword),
                       Container(
                         margin: EdgeInsets.only(bottom: 30 ,top: 30),
-                        width: screenWidth * 0.80,
+                        width: screenWidth * 0.90,
                         child: ElevatedButton(
                           onPressed: () {
                             ctrDataUser.datauser(ctrUsername.text.toString(), ctrPassword.text.toString(), ctrEmail.text.toString(), ctrPhone.text.toString());
@@ -99,30 +131,37 @@ class SignUp extends StatelessWidget {
                           },
                           style: customButtonStyle,
                           child: Text(
-                              "Register",
+                              "Sign Up",
                               style: btnlogin
                           ),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(right: 145),
-                        child: InkWell(
-                          child: Text(
-                            'Have an account? log in',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold
-                            ),
+                      Container(margin: EdgeInsets.only(left: screenWidth * 0.25),
+                        child: Center(
+                          child: Row(
+                            children: [
+                              Text(
+                                  'Have an account? ',
+                                  style:  GoogleFonts.montserrat(fontWeight: FontWeight.normal,color: Colors.white)
+                              ),
+                              InkWell(
+                                child: Text(
+                                    'log in',
+                                    style: GoogleFonts.montserrat(fontWeight: FontWeight.normal,color: Colors.white,decoration: TextDecoration.underline,decorationColor: Colors.white)
+                                ),
+                                onTap: () {
+                                  Get.to(() => LoginPage());
+                                },
+                              )
+
+                            ],
                           ),
-                          onTap: () {
-                            // Navigasi ke halaman tujuan saat teks diklik
-                            Get.off(() => LoginPage());
-                          },
+
                         ),
                       ),
                     ],
                   ),
                 ),
-              ),
             ),
           )
       ),

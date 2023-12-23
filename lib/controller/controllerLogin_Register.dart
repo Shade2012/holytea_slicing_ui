@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get/get.dart';
 class CtrDataUser extends GetxController {
+  var obscureText = true.obs;
   late final SharedPreferences prefs;
   final ctrUsername = RxString("");
   final ctrPassword = RxString("");
@@ -11,6 +12,7 @@ class CtrDataUser extends GetxController {
   @override
   void onInit() {
     // TODO: implement onInit
+
     super.onInit();
 
   }
