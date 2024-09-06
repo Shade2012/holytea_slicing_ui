@@ -23,10 +23,10 @@ class MyCustomPopUpController extends GetxController {
 
   void addToCart(HolyteaModel product) {
     cartController.addToCart(CartItem(
-      productId: product.id,
+      productId: product.id.obs,
       productName: product.name,
       price: product.price,
-      quantity: counterController.quantity?.value ?? 0,
+      quantity: counterController.quantity.value.obs,
       productImage: product.image,
     ));
     counterController.reset();
