@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:holytea_slicing_ui/views/cartpage/widget/cartCard.dart';
 import 'package:holytea_slicing_ui/views/menupage.dart';
 import 'package:holytea_slicing_ui/views/paymentpage.dart';
 import 'package:holytea_slicing_ui/widgets/counterwidget.dart';
 import 'package:holytea_slicing_ui/widgets/counterwidgetCart.dart';
 import 'package:holytea_slicing_ui/widgets/ewallet.dart';
+import 'package:intl/intl.dart';
 import '../controller/CartController.dart';
 import '../controller/controller_counter.dart';
 import '../model/cartmodel.dart';
@@ -18,34 +20,20 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    final currencyFormat =
+        NumberFormat.currency(locale: 'id_ID', symbol: 'Rp ', decimalDigits: 0);
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: primaryColor,
-        automaticallyImplyLeading: false,
-        title: Title(
-          color: Colors.white,
-          child: Container(
-            child: Center(
-              child: Text(
-                "My Cart",
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-        ),
-      ),
+      backgroundColor: Colors.white,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.only(top: 30, bottom: 30),
-            child: eWallet(),
-          ),
-          Container(
-            margin: EdgeInsets.only(right: 220),
+            margin: EdgeInsets.only(left: 20, top: 50),
             child: Text('Your Order(s)', style: subHeaderText),
           ),
-
           Expanded(
             child: Obx(() {
               if (cartController.cartItems.isEmpty) {
@@ -56,97 +44,114 @@ class CartPage extends StatelessWidget {
                 return Column(
                   children: [
                     Expanded(
-                      child: ListView.builder(
+                      child: ListView.separated(
                         itemCount: cartController.cartItems.length,
                         itemBuilder: (BuildContext context, int index) {
                           final cartItem = cartController.cartItems[index];
-                          final totalItemPrice = cartItem.price * cartItem.quantity;
-                          return ListTile(
-                            title: Text(cartItem.productName),
-                            leading: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Container(
-                                width: 95,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: NetworkImage(cartItem.productImage),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            subtitle: CounterWidget2(index: index),
-                            trailing: Text(
-                              "Rp $totalItemPrice",
-                              style: normalFontBlFigma2,
-                            ),
+                          return CartCard(produk: cartItem,isCart: true,);
+                        },
+                        separatorBuilder: (BuildContext context, int index) {
+                          return SizedBox(
+                            height: 20,
                           );
                         },
                       ),
                     ),
                     Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 60,
-                      margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Get.to(PaymentPage());
-                        },
-                        style: customButtonStyle,
-                        child: Text(
-                          "Make Order",
-                          style: btnlogin,
-                        ),
+                      padding: EdgeInsets.only(top: 30,right: 20,left: 20),
+                      width: double.infinity,
+                      height: screenHeight * 0.23,
+                      decoration:
+                      BoxDecoration(color: Color.fromARGB(255, 230, 255, 221)),
+                      child: Column(
+                        children: [
+                          Obx(() => Padding(
+                            padding: const EdgeInsets.only(bottom: 30),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        child: Checkbox(
+                                          value: cartController.all.value,
+                                          activeColor: primaryColor,
+                                          side: BorderSide(color: primaryColor, width: 2),
+                                          onChanged: (bool? value) {
+                                            if(value == true){
+                                              for (CartItem cartItem in cartController.cartItems) {
+                                                cartItem.selected.value = true;
+                                              }
+                                              cartController.all.value = value!;
+                                            }else{
+                                              for (CartItem cartItem in cartController.cartItems) {
+                                                cartItem.selected.value = false;
+                                              }
+                                              cartController.all.value = value!;
+                                            }
+                                          },
+                                        ),
+                                      ),
+                                      Text(
+                                        'All',
+                                        style: contentTextVer3,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text('Total :',style: contentTextVer3,),
+                                    Obx(() {
+                                      int totalPrice = 0;
+                                      for (CartItem cartItem in cartController.cartItems.where((element) => element.selected.value == true,)) {
+                                        totalPrice += cartItem.price.toInt() *
+                                            cartItem.quantity.value;
+                                      }
+                                      return Text(currencyFormat.format(totalPrice),style: contentTextVer3,);
+                                    })
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 60,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                if(cartController.cartItems.where((element) => element.selected.value == true ,).length != 0){
+                                Get.to(PaymentPage());
+                                }else{
+                                  Get.snackbar('Pesan', 'atleast pick one menu');
+                                }
+                                // print(cartController.cartItems.length);
+                              },
+                              style: customButtonStyle,
+                              child: Text(
+                                "Checkout",
+                                style: btnlogin,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
+                    )
                   ],
                 );
               }
             }),
           ),
 
-
-
-
-
-
-          // Dibawah adalah kodingan untuk menampilkan total price
-          // Card(
-          //   elevation: 4,
-          //   margin: const EdgeInsets.all(16),
-          //   child: Padding(
-          //     padding: const EdgeInsets.all(16),
-          //     child:
-          //     Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //       children: [
-          //         Text(
-          //           'Total Price:',
-          //           style: TextStyle(fontWeight: FontWeight.bold),
-          //         ),
-          //         Obx(() {
-          //           // Calculate the total price by summing up totalItemPrice of all items
-          //           double totalPrice = 0;
-          //           for (CartItem cartItem in cartController.cartItems) {
-          //             totalPrice += cartItem.price * cartItem.quantity;
-          //           }
-          //
-          //           return Text(
-          //             'Rp $totalPrice', // Display the total price
-          //             style: TextStyle(fontWeight: FontWeight.bold),
-          //           );
-          //         }),
-          //       ],
-          //     ),
-          //   ),
-          // ),
-
-
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
+            backgroundColor: Colors.white,
             icon: IconButton(
               onPressed: () {
                 Get.off(() => HomePage());

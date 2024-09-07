@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 class CartController extends GetxController {
   RxInt quantity = 1.obs;
+  RxBool all = false.obs;
   final RxList<CartItem> cartItems = <CartItem>[].obs;
 
   void addToCart(CartItem item) {
@@ -11,7 +12,7 @@ class CartController extends GetxController {
 
     if (existingItemIndex != -1) {
       // Item already exists in the cart, update the quantity
-      cartItems[existingItemIndex].quantity += item.quantity;
+      cartItems[existingItemIndex].quantity += item.quantity.value;
     } else {
       // Item doesn't exist, add it to the cart
       cartItems.add(item);
@@ -21,31 +22,30 @@ class CartController extends GetxController {
 
   // Remove an item from the cart
   void removeItemFromCart(int index) {
-    cartItems.removeAt(index);
+    final cartItem = cartItems.firstWhere((element) => element.productId.value == index,);
+    cartItems.remove(cartItem);
     cartItems.refresh();
   }
 
   // Increment the quantity of an item at a specific index
   void incrementQuantity(int index) {
-    if (index >= 0 && index < cartItems.length) {
-      cartItems[index].quantity++;
+    final cartItem = cartItems.firstWhere((element) => element.productId.value == index,);
+      cartItem.quantity++;
       cartItems.refresh();
-    }
   }
 
   // Decrement the quantity of an item at a specific index
   void decrementQuantity(int index) {
-    if (index >= 0 && index < cartItems.length) {
-      if (cartItems[index].quantity > 0) {
-        cartItems[index].quantity--;
+    final cartItem = cartItems.firstWhere((element) => element.productId.value == index,);
+      if (cartItem.quantity > 0) {
+        cartItem.quantity--;
 
-        if (cartItems[index].quantity == 0) {
+        if (cartItem.quantity == 0) {
           // If the quantity becomes zero, remove the item from the cart
           removeItemFromCart(index);
         }
         cartItems.refresh();
       }
-    }
   }
 
 }

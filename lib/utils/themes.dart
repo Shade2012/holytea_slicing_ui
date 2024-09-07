@@ -134,17 +134,36 @@ TextStyle contentText = GoogleFonts.inter(
 TextStyle contentTextGrey = GoogleFonts.inter(
     textStyle: TextStyle(
   color: colorText,
-  fontWeight: FontWeight.w500,
+  fontWeight: FontWeight.normal,
 ));
 TextStyle contentTextVer3 = GoogleFonts.inter(
     textStyle: TextStyle(
         color: secondaryColor,
         fontWeight: FontWeight.w700,
-        fontSize: figmaFontsize(14)));
+        fontSize: figmaFontsize(17)));
+
+TextStyle newcontentTextVer3 = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        color: secondaryColor,
+        fontWeight: FontWeight.w700,
+        fontSize: figmaFontsize(15)));
+
+TextStyle newcontentTextVer03 = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        color: secondaryColor,
+        fontWeight: FontWeight.w400,
+        fontSize: figmaFontsize(13)));
+
 TextStyle contentTextVer4 = GoogleFonts.inter(
     textStyle: TextStyle(
         color: primaryTextColor,
         fontWeight: FontWeight.w700,
+        fontSize: figmaFontsize(14)));
+
+TextStyle regulerWhite = GoogleFonts.inter(
+    textStyle: TextStyle(
+        color: primaryTextColor,
+        fontWeight: FontWeight.normal,
         fontSize: figmaFontsize(14)));
 
 TextStyle contentTextVer2 = GoogleFonts.inter(
@@ -182,10 +201,13 @@ TextStyle normalFontBlFigma = GoogleFonts.inter(
     textStyle: TextStyle(color: colorText, fontSize: figmaFontsize(20)));
 
 TextStyle normalFontBlFigma2 = GoogleFonts.inter(
-    textStyle: TextStyle(color: colorText, fontSize: figmaFontsize(14)));
+    textStyle: TextStyle(color: colorText, fontSize: figmaFontsize(17)));
+
+TextStyle normalFontBlFigmagrey = GoogleFonts.inter(
+    textStyle: TextStyle(color: colorText, fontSize: figmaFontsize(17)));
 
 TextStyle normalFontBlFigmaBlack = GoogleFonts.inter(
-    textStyle: TextStyle(color: secondaryColor, fontSize: figmaFontsize(14)));
+    textStyle: TextStyle(color: secondaryColor, fontSize: figmaFontsize(17)));
 
 //IMAGE ASSETS
 String image_awal_set = "assets/image_awal_set.png";
@@ -199,3 +221,4 @@ String dark_choco = "assets/dark_choco.png";
 String image_placeholder = "assets/image_placeholder.png";
 String image_cart = "assets/cartimage.png";
 String tracklocatiom = "assets/tracklocation.png";
+String wallet = "assets/dompet.png";

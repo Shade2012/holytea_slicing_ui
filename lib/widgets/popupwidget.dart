@@ -81,7 +81,9 @@ class MyCustomPopUp extends StatelessWidget {
                Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  //Counter Widget
                   CounterWidget(),
+
                   Obx(() => Container(
                     child: Text(
                       "Rp " + (controllerCounter.quantity.value * product.price).toString(),

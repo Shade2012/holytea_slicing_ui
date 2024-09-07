@@ -22,7 +22,7 @@ class SignUp extends StatelessWidget {
       bool type,
       TextEditingController controller,
       ) {
-    return Container(
+        return Container(
       margin: EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
@@ -44,10 +44,10 @@ class SignUp extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
+      );
+    }
 
-  Widget password(
+    Widget password(
       IconData icon,
       String label,
       String hint,
@@ -81,7 +81,7 @@ class SignUp extends StatelessWidget {
       ),
       ),
     );
-  }
+    }
 
   @override
   Widget build(BuildContext context) {

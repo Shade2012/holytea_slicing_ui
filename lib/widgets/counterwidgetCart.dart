@@ -11,20 +11,26 @@ class CounterWidget2 extends StatelessWidget {
   CounterWidget2({required this.index });
   @override
   Widget build(BuildContext context) {
-    final cartItem = cartController.cartItems[index];
+    final cartItem = cartController.cartItems.firstWhere((element) => element.productId.value == index,);
     return Container(
       child:  Row(
         children: [
-          FloatingActionButton(
-            onPressed: () {
-              cartController.decrementQuantity(index);
-            },
-            backgroundColor: bgColor,
-            mini: true,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
+          Container(
+            padding: EdgeInsets.all(3),
+            decoration: BoxDecoration(
+              color:Color.fromARGB(255, 243, 255, 238),
+              borderRadius: BorderRadius.all(Radius.circular(30)),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2), // Shadow color with opacity
+                  blurRadius: 2, // Blur radius
+                ),
+              ]
             ),
-            child: Center(
+            child: InkWell(
+              onTap: () {
+                cartController.decrementQuantity(cartItem.productId.value);
+              },
               child: Icon(
                 Icons.remove,
                 color: primaryColor,
@@ -32,7 +38,7 @@ class CounterWidget2 extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 16,
+            width: 12,
           ),
        Text(
           '${cartItem.quantity}',
@@ -40,19 +46,24 @@ class CounterWidget2 extends StatelessWidget {
         ),
 
           SizedBox(
-            width: 20,
+            width: 12,
           ),
-          FloatingActionButton(
-            onPressed: () {
-              cartController.incrementQuantity(index);
-
-            },
-            backgroundColor: primaryColor,
-            mini: true,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
+          Container(
+            padding: EdgeInsets.all(3),
+            decoration: BoxDecoration(
+                color:primaryColor,
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2), // Shadow color with opacity
+                    blurRadius: 2, // Blur radius
+                  ),
+                ]
             ),
-            child: Center(
+            child: InkWell(
+              onTap: () {
+                cartController.incrementQuantity(cartItem.productId.value);
+              },
               child: Icon(
                 Icons.add,
                 color: primaryTextColor,
